@@ -50,14 +50,14 @@ if(!isset($_SESSION["nick_usuario"]))
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+       <!-- <a href="index3.html" class="nav-link"></a>-->
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+       <!-- <a href="#" class="nav-link"></a>-->
       </li>
     </ul>
 
-    <!-- SEARCH FORM -->
+  <!--  <!-- SEARCH FORM 
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -67,7 +67,7 @@ if(!isset($_SESSION["nick_usuario"]))
           </button>
         </div>
       </div>
-    </form>
+    </form>-->
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -124,36 +124,42 @@ if(!isset($_SESSION["nick_usuario"]))
           <img src="../img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php  echo $_SESSION["nick_cliente"]; ?></a>
+          <a href="#" class="d-block"><?php  echo $_SESSION["nick_usuario"]; ?></a>
         </div>
       </div>    
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+              <li class="nav-item has-treeview menu-open">
+              <a href="panel.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Inicio
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Compras</p>
+                <a href="#" class="nav-link active">
+                  <i class="far nav-icon"></i>
+                  <!--<i class="far fa-circle nav-icon"></i> -->
+                  <p>Mis Compras</p>
                 </a>
               </li>
-              <!--<li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+              <li class="nav-item">
+                  <a href="panel_usuario.php" class="nav-link active">
+                  <i class="far nav-icon"></i>
+                  <p>Mi Perfil</p>
                 </a>
               </li>
+              <li class="nav-item">
+                  <a href="compras.php" class="nav-link active">
+                  <i class="far nav-icon"></i>
+                  <p>Carrito de compras</p>
+                </a>
+              </li>
+              <!--
               <li class="nav-item">
                 <a href="./index3.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -162,6 +168,8 @@ if(!isset($_SESSION["nick_usuario"]))
               </li>-->
             </ul>
           </li>
+        </ul>
+      </nav>
           <!--<li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
