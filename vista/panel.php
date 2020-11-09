@@ -148,10 +148,11 @@ if(!isset($_SESSION["nick_usuario"]))
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="panel_usuario.php" class="nav-link active">
+                  <a href="perfil_usuario.php" class="nav-link active">
                   <i class="far nav-icon"></i>
                   <p>Mi Perfil</p>
                 </a>
+                  
               </li>
               <li class="nav-item">
                   <a href="compras.php" class="nav-link active">
