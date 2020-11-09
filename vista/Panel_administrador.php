@@ -129,7 +129,7 @@ if(!isset($_SESSION["nick_usuario"]))
             </ul>
               
           </li>
-           
+            
     </div>
     
   </aside>

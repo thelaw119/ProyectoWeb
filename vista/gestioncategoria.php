@@ -30,7 +30,7 @@ $resultado = mysqli_query($conexion, $SQL);
                 <th>Accion</th>
             </tr>
         </thead> 
-        
+         
         <?php foreach($resultado as $row){ ?>
         <tbody>
             <tr>

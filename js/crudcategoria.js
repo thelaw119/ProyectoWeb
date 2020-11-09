@@ -4,7 +4,7 @@ function Guardar_categoria(nombre, descripcion) {
         "nombre": nombre,
         "descripcion": descripcion
     };
-
+ 
     $.ajax({
         data: datos,
         url: '../controlador/GuardarCategoria.php',
