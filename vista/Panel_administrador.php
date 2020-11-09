@@ -41,15 +41,7 @@ if(!isset($_SESSION["nick_usuario"]))
 <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
   <script src="../js/contenido.js"></script>
   <script src="../js/crudcategoria.js"></script>
-  <script>
-  
-  $(".ul").find("li").click(function(){
-  $(".ul li").removeClass('nav-item')
-  $(this).addClass('nav-item')
-})
-  
-  
-  </script>
+
           
   
 </head>

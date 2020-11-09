@@ -6,12 +6,10 @@ if (!isset($_SESSION["nick_usuario"])) {
     header("Location: login.php");
 }
 
-$SQL = "select * from categorias";
-   
+$SQL = "select codigo_categoria,nombre_categoria,descripcion_categoria from categorias";
+$resultado = mysqli_query($conexion, $SQL);
 
 ?>
-
-
 <div class="table-wrapper">
     <div class="table-title">
         <div class="row">
@@ -33,26 +31,24 @@ $SQL = "select * from categorias";
             </tr>
         </thead>
         
-        <?php ?>
+        <?php foreach($resultado as $row){ ?>
         <tbody>
             <tr>
+                <td><?php echo $row['codigo_categoria']; ?></td>
+                <td><?php echo $row['nombre_categoria']; ?></td>
+                <td><?php echo $row['descripcion_categoria']; ?></td>
                 <td>
-                    
-                </td>
-                <td><?php ?></td>
-                <td><?php ?></td>
-                <td><?php ?></td>
-                <td>
-                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    <a href="#editarCategoria" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+                    <a href="#eliminarCategoria" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
                 </td>
             </tr>           					 
         </tbody>
+        <?php } ?>
     </table>
 </div>
 
 
-<!-- Agrego el Producto -->
+<!-- Agrego la Categoria -->
 <div id="agregarCategoria" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -82,13 +78,14 @@ $SQL = "select * from categorias";
         </div>
     </div>
 </div>
-<!-- Edit Modal HTML -->
-<div id="editEmployeeModal" class="modal fade">
+
+<!-- Edito la Categoria  -->
+<div id="editarCategoria" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
                 <div class="modal-header">						
-                    <h4 class="modal-title">Edit Employee</h4>
+                    <h4 class="modal-title">Editar Categoria</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">					
@@ -117,6 +114,7 @@ $SQL = "select * from categorias";
         </div>
     </div>
 </div>
+
 <!-- Delete Modal HTML -->
 <div id="deleteEmployeeModal" class="modal fade">
     <div class="modal-dialog">
