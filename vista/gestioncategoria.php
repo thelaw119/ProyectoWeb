@@ -29,7 +29,7 @@ $resultado = mysqli_query($conexion, $SQL);
                 <th>Descripcion</th>
                 <th>Accion</th>
             </tr>
-        </thead>
+        </thead> 
         
         <?php foreach($resultado as $row){ ?>
         <tbody>

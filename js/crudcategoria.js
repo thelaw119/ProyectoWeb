@@ -16,7 +16,7 @@ function Guardar_categoria(nombre, descripcion) {
         success: function (response) {
             
             $("#resultado").html(response);
-
+ 
 //            setInterval(function(){
 //                $("#resultado").load("../vista/gestioncategoria.php");
 //            },1000);
