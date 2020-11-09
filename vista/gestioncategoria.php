@@ -7,7 +7,7 @@ if (!isset($_SESSION["nick_usuario"])) {
 }
 
 $SQL = "select * from categorias";
-
+   
 
 ?>
 
@@ -32,6 +32,8 @@ $SQL = "select * from categorias";
                 <th>Accion</th>
             </tr>
         </thead>
+        
+        <?php ?>
         <tbody>
             <tr>
                 <td>
