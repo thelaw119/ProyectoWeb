@@ -42,6 +42,10 @@ if(!isset($_SESSION["nick_usuario"]))
   <script src="../js/contenido.js"></script>
   <script src="../js/crudcategoria.js"></script>
 
+  
+  
+  
+  
           
   
 </head>

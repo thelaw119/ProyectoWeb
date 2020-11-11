@@ -100,13 +100,14 @@ if (!isset($_SESSION["nick_usuario"])) {
                                                 <label  class="col-sm-2 col-form-label">contraseña</label>
                                                 <div class="col-sm-10">
                                                     <input type="password" class="form-control" id="clave" name="clave" value="<?php echo $_SESSION["clave_usuario"]; ?>"placeholder="contraseña">
+                                                    <input type="hidden" id="codigo" name="codigo" value="<?php echo $_SESSION["codigo_usuario"];?>">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="offset-sm-2 col-sm-10">
-                                                    <button type="submit" class="btn btn-danger" href="javascript:;" onclick="modificarusuario($('#nombre').val(),$('#apellido').val(),$('#nombre').val(),$('#direccion').val(),$('#email').val(),$('#clave').val(),$('#codigo').val());">Modificar</button>
+                                                    <button type="submit" class="btn btn-danger" href="javascript:;" onclick="modificarusuario($('#nombre').val(),$('#apellido').val(),$('#direccion').val(),$('#email').val(),$('#clave').val(),$('#codigo').val());">Modificar</button>
                                                 </div>
-                                                <input type="hidden" id="codigo" name="codigo" value="<?php echo $_SESSION["codigo_usuario"];?>">
+                                                
                                             </div>
                                         </form>
                                     </div>

@@ -1,7 +1,7 @@
 
-function modificarusuario(nombre, apellido, direccion, email, clave,codigo) {
+function modificarusuario(nombre, apellido, direccion, email, clave, codigo) {
 
-    var dato = {"nombre": nombre,
+    var datos = {"nombre": nombre,
         "apellido": apellido,
         "direccion": direccion,
         "email": email,
@@ -11,7 +11,7 @@ function modificarusuario(nombre, apellido, direccion, email, clave,codigo) {
 
 
     $.ajax({
-        data: dato,
+        data: datos,
         url: '../controlador/ModificarUsuario.php',
         type: 'post',
         beforeSend: function () {
@@ -24,3 +24,4 @@ function modificarusuario(nombre, apellido, direccion, email, clave,codigo) {
 
     });
 }
+

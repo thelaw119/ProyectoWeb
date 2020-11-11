@@ -1,3 +1,11 @@
+$('#prueba').click(function() {
+    
+    
+        });
+
+
+
+
 function Guardar_categoria(nombre, descripcion) {
 
     var datos = {
@@ -27,4 +35,4 @@ function Guardar_categoria(nombre, descripcion) {
     });
 
 }
-
+        

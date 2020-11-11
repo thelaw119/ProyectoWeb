@@ -147,7 +147,7 @@ if(!isset($_SESSION["nick_usuario"]))
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="#" onclick="javascript:ccompras();" class="nav-link active">
                   <i class="far nav-icon"></i>
                   <!--<i class="far fa-circle nav-icon"></i> -->
                   <p>Mis Compras</p>
@@ -163,7 +163,7 @@ if(!isset($_SESSION["nick_usuario"]))
                   
               </li>
               <li class="nav-item">
-                  <a href="compras.php" class="nav-link active">
+                  <a href="#"  class="nav-link active">
                   <i class="far nav-icon"></i>
                   <p>Carrito de compras</p>
                 </a>
