@@ -35,9 +35,11 @@ if (!isset($_SESSION["nick_usuario"])) {
                         <h3 class="card-title">Información</h3>
                     </div>
                     <div class="card-body">
-                        <strong><i class="fas fa-book mr-1"></i> <?php echo $_SESSION["nombre_usuario"];
-echo " ";
-echo $_SESSION["apellido_usuario"]; ?></strong><hr>
+                        <strong><i class="fas fa-book mr-1"></i> <?php
+                            echo $_SESSION["nombre_usuario"];
+                            echo " ";
+                            echo $_SESSION["apellido_usuario"];
+                            ?></strong><hr>
                         <strong><i class="fas fa-map-marker-alt mr-1"></i> <?php echo $_SESSION["direccion_usuario"]; ?></strong> <hr>
                         <!--<strong><i class="fas fa-pencil-alt mr-1"></i> </strong>-->
                         <strong><i class="far fa-file-alt mr-1"></i> <?php echo $_SESSION["email_usuario"]; ?></strong> <hr>
@@ -97,13 +99,14 @@ echo $_SESSION["apellido_usuario"]; ?></strong><hr>
                                             <div class="form-group row">
                                                 <label  class="col-sm-2 col-form-label">contraseña</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="clave" name="clave" value="<?php echo $_SESSION["clave_usuario"]; ?>"placeholder="contraseña">
+                                                    <input type="password" class="form-control" id="clave" name="clave" value="<?php echo $_SESSION["clave_usuario"]; ?>"placeholder="contraseña">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="offset-sm-2 col-sm-10">
-                                                    <button type="submit" class="btn btn-danger" onclick="">Modificar</button>
+                                                    <button type="submit" class="btn btn-danger" href="javascript:;" onclick="modificarusuario($('#nombre').val(),$('#apellido').val(),$('#nombre').val(),$('#direccion').val(),$('#email').val(),$('#clave').val(),$('#codigo').val());">Modificar</button>
                                                 </div>
+                                                <input type="hidden" id="codigo" name="codigo" value="<?php echo $_SESSION["codigo_usuario"];?>">
                                             </div>
                                         </form>
                                     </div>
