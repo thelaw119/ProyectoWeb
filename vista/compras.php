@@ -1,9 +1,12 @@
 <?php
 session_start();
-
+require_once '../conexion/Conexion.php';
 if (!isset($_SESSION["nick_usuario"])) {
     header("Location: login.php");
 }
+
+$SQL = "select nombre_categoria from categorias";
+$resultado = mysqli_query($conexion, $SQL);
 ?>
 
 <!DOCTYPE html>
@@ -737,7 +740,16 @@ if (!isset($_SESSION["nick_usuario"])) {
                             Categorias
                         </button>
                         <div class="dropdown-menu">
-                            <!-- Dropdown menu links -->
+                            <!-- Dropdown menu links -->          
+                            <?php 
+                            foreach ($resultado as $row) {
+                               
+                            ?>
+                            <a class="dropdown-item" href="#"> <?php echo $row['nombre_categoria']?></a>
+                            <?php 
+                            }
+                            ?>
+                            
                         </div>
                     </div>
 
