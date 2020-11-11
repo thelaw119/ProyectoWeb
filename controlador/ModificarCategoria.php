@@ -8,30 +8,39 @@ $nombre = $_POST["nombre"];
 $descripcion = $_POST["descripcion"];
 $opcion = $_POST["opcion"];
 
-if ($nombre == '' || $descripcion == '') {
+switch ($opcion) {
 
-    echo "<div class='alert alert-warning alert-dismissible'>
-                  <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>
-                  <h5><i class='icon fas fa-info'></i> Advertencia!</h5>
-                  Debe completar los datos.
-                </div>";
-} else {
+    case 1:
+        $SQL = "INSERT INTO categorias(nombre_categoria,descripcion_categoria) values('$nombre','$descripcion')";
+        $resultado = mysqli_query($conexion, $SQL);
 
-    $SQL = "UPDATE categorias SET nombre_categoria='$nombre', descripcion_categoria='$descripcion' WHERE codigo_categoria='$codigo' ";
-    $resultado = mysqli_query($conexion, $SQL);
-    $data->fetch_assoc($resultado);
-    if ($resultado) {
-        echo "<div class='alert alert-success alert-dismissible'>
-                  <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>
-                  <h5><i class='icon fas fa-ban'></i> Alert!</h5>
-                  Datos Guardados.
-                </div>";
-    } else {
-        echo "<div class='alert alert-danger alert-dismissible'>
-                  <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>
-                  <h5><i class='icon fas fa-check'></i> Alert!</h5>
-                  Problemas al guardar tus datos.
-                </div>";
-    }
+
+        $consulta = "SELECT codigo_categoria, nombre_categoria, descripcion_categoria FROM categorias ORDER BY codigo_categoria DESC LIMIT 1";
+        $resultado = mysqli_query($conexion, $consulta);
+        $data = $resultado->fetch_assoc(MYSQLI_ASSOC);
+
+        break;
+
+    case 2:
+        
+        
+        $SQL = "UPDATE categorias SET nombre_categoria='$nombre', descripcion_categoria='$descripcion' WHERE codigo_categoria ='$codigo'";
+        $resultado = mysqli_query($conexion, $SQL);   
+        
+        $consulta = "SELECT codigo_categoria, nombre_categoria, descripcion_categoria FROM categorias WHERE codigo_categoria ='$codigo'";
+        $resultado = mysqli_query($conexion, $consulta);
+        $data = $resultado->fetch_assoc(MYSQLI_ASSOC);
+        
+        break;
+
+
+    case 3:
+        $SQL = "DELETE FROM categorias WHERE codigo_categoria='$codigo'";
+        $resultado = mysqli_query($conexion, $SQL);
+
+
+        break;
 }
+
+
 print json_encode($data, JSON_UNESCAPED_UNICODE);

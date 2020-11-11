@@ -23,7 +23,7 @@ if ($nombre == '' || $apellido == '' || $direccion == '' || $email == '' || $nic
     </script>";
    
 } else {
-    $SQL = "INSERT INTO Usuarios(`nombre_cliente`,`apellido_cliente`,`direccion_cliente`,`email_cliente`,`nick_cliente`,`clave_cliente`,`codigo_perfil`) values('$nombre','$apellido','$direccion','$email','$nick','$clave',2)";
+    $SQL = "INSERT INTO Usuarios(nombre_usuario,apellido_usuario,direccion_usuario,email_usuario,nick_usuario,clave_usuario,codigo_perfil) values('$nombre','$apellido','$direccion','$email','$nick','$clave',2)";
     $resultado = mysqli_query($conexion, $SQL);
     if ($resultado) {
 

@@ -36,10 +36,7 @@ $("#btnNuevo").click(function(){
     $(".modal-header").css("background-color", "#1cc88a");
     $(".modal-header").css("color", "white");
     $(".modal-title").text("Nueva Categoria");            
-    //$("#asdasd").load("../vista/gestioncategoria.php");
     $("#modalCRUD").modal("show");
-    
-    
     
     id=null;
     opcion = 1; //alta
@@ -61,10 +58,8 @@ $(document).on("click", ".btnEditar", function(){
     
     $(".modal-header").css("background-color", "#4e73df");
     $(".modal-header").css("color", "white");
-    $(".modal-title").text("Categoria");   
-    // $("#asdasd").load("../vista/gestioncategoria.php");
+    $(".modal-title").text("Categoria");            
     $("#modalCRUD").modal("show");  
-   
     
 });
 
@@ -83,10 +78,8 @@ $(document).on("click", ".btnBorrar", function(){
             data: {opcion:opcion, id:id},
             success: function(){
                 TablaCategoria.row(fila.parents('tr')).remove().draw();
-                
             }
         });
-       
     }   
 });
 
@@ -109,11 +102,8 @@ $("#actualizar_categoria").submit(function(e){
             else{TablaCategoria.row(fila).data([id,nombre,descripcion]).draw();}            
         }        
     });
-    
     $("#modalCRUD").modal("hide");    
-    //$("#asdasd").load("../vista/gestioncategoria.php");
-    $("#modalCRUD").modal("hide");  
-    //$("#asdasd").modal("hide"); 
+    
 });    
   
 });
