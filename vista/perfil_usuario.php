@@ -6,6 +6,7 @@ if (!isset($_SESSION["nick_usuario"])) {
 }
 ?>
 
+<script src="../js/editardatosusuario.js"></script>
 
 <section class="content">
     <div class="container-fluid">
@@ -49,13 +50,7 @@ if (!isset($_SESSION["nick_usuario"])) {
             <!-- /.col -->
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header p-2">
-                        <ul class="nav nav-pills">
-                            <li class="nav-item"><a class="nav-link active" href="#informacion" data-toggle="tab">Editar mi Información</a></li>
-                            <!--                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
-                                                        <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>-->
-                        </ul>
-                    </div><!-- /.card-header -->
+
                     <div class="card-body">
                         <div class="tab-content">
 
@@ -69,8 +64,8 @@ if (!isset($_SESSION["nick_usuario"])) {
                                         <div class="timeline timeline-inverse">
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="settings">
-                                        <form class="form-horizontal">
+                                    
+                                    <form >
                                             <div class="form-group row">
                                                 <label  class="col-sm-2 col-form-label">Nombre</label>
                                                 <div class="col-sm-10">
@@ -100,22 +95,25 @@ if (!isset($_SESSION["nick_usuario"])) {
                                                 <label  class="col-sm-2 col-form-label">contraseña</label>
                                                 <div class="col-sm-10">
                                                     <input type="password" class="form-control" id="clave" name="clave" value="<?php echo $_SESSION["clave_usuario"]; ?>"placeholder="contraseña">
-                                                    <input type="hidden" id="codigo" name="codigo" value="<?php echo $_SESSION["codigo_usuario"];?>">
+                                                    <input type="hidden" id="codigo" name="codigo" value="<?php echo $_SESSION["codigo_usuario"]; ?>">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="offset-sm-2 col-sm-10">
-                                                    <button type="submit" class="btn btn-danger" href="javascript:;" onclick="modificarusuario($('#nombre').val(),$('#apellido').val(),$('#direccion').val(),$('#email').val(),$('#clave').val(),$('#codigo').val());">Modificar</button>
+                                                    <button type="submit" class="btn btn-danger" href="javascript:;" onclick="modificarusuario($('#nombre').val(), $('#apellido').val(), $('#direccion').val(), $('#email').val(), $('#clave').val(), $('#codigo').val());return false;">Modificar</button>
+   
                                                 </div>
-                                                
+
                                             </div>
                                         </form>
-                                    </div>
+                                    <div id="resultado"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </section>
+        </div>
+    </div>
+</section>
 

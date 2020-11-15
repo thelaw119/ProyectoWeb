@@ -83,7 +83,7 @@ primary key(codigo_detalle_eventos));
 insert into metodo_pago(nombre_metodo_pago,descripcion_metodo_pago) values("Debito","Pago con tarjeta debito"),("credito","Pago contarjeta de credito");
 
 
-select * from categorias;
+select * from usuarios;
 insert into perfiles values(1,"Administrador"),(2,"Cliente");
 
 insert into Usuarios(`codigo_usuario`,`nombre_usuario`,`apellido_usuario`,`direccion_usuario`,`email_usuario`,`nick_usuario`,`clave_usuario`,`codigo_perfil`) 
@@ -110,3 +110,11 @@ productos.descripcion_producto,
 productos.precio_producto,
 productos.codigo_categoria from productos 
 inner join categorias on productos.codigo_categoria = categorias.codigo_categoria
+
+
+
+
+	
+
+
+
