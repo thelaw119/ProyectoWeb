@@ -44,3 +44,4 @@ switch ($opcion) {
 
 
 print json_encode($data, JSON_UNESCAPED_UNICODE);
+$conexion = null;
