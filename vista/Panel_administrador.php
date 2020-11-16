@@ -127,6 +127,15 @@ if (!isset($_SESSION["nick_usuario"])) {
                                         </a>
                                     </li>
                                 </ul>
+                                
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item" id="x">
+                                        <a href="#" onclick="javascript:generarevento();" class="nav-link">
+                                            <i class="far fa-primary nav-icon"></i>
+                                            <p>Generar Eventos</p>
+                                        </a>
+                                    </li>
+                                </ul>
 
                             </li>
 

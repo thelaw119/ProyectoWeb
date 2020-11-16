@@ -38,8 +38,9 @@ $("#btnNuevo").click(function(){
     $(".modal-title").text("Nueva Categoria");            
     //$("#asdasd").load("../vista/gestioncategoria.php");
     $("#modalCRUD").modal("show");
-    
-    
+    //$("#asdasd").load("../vista/gestioncategoria.php");
+//    $("#modalCRUD").modal("hide"); 
+//   $("#asdasd").load("../vista/gestioncategoria.php");
     
     id=null;
     opcion = 1; //alta
@@ -62,9 +63,10 @@ $(document).on("click", ".btnEditar", function(){
     $(".modal-header").css("background-color", "#4e73df");
     $(".modal-header").css("color", "white");
     $(".modal-title").text("Categoria");   
-    // $("#asdasd").load("../vista/gestioncategoria.php");
-    $("#modalCRUD").modal("show");  
-   
+    //$('#TablaCategoria').html(data);
+//    $("#modalCRUD").modal("show");  
+//$('#TablaCategoria').html(data);
+   //$("#asdasd").load("../vista/gestioncategoria.php");
     
 });
 
@@ -83,10 +85,10 @@ $(document).on("click", ".btnBorrar", function(){
             data: {opcion:opcion, id:id},
             success: function(){
                 TablaCategoria.row(fila.parents('tr')).remove().draw();
-                
+                $('#TablaCategoria').html(data);
             }
         });
-       
+       //$('#TablaCategoria').html(data);
     }   
 });
 
@@ -106,13 +108,19 @@ $("#actualizar_categoria").submit(function(e){
             nombre = data[0].nombre;
             descripcion = data[0].descripcion;
             if(opcion == 1){TablaCategoria.row.add([id,nombre,descripcion]).draw();}
-            else{TablaCategoria.row(fila).data([id,nombre,descripcion]).draw();}            
+            else{TablaCategoria.row(fila).data([id,nombre,descripcion]).draw();} 
+            $('#TablaCategoria').html(data);
         }        
     });
+//    $('#TablaCategoria').html(data);
+//    $("#modalCRUD").modal("hide"); 
+    //$('#TablaCategoria').html(data);;
     
-    $("#modalCRUD").modal("hide");    
+//
+//$("#asdasd").load("../vista/gestioncategoria.php");
+    //$("#modalCRUD").modal("hide");    
     //$("#asdasd").load("../vista/gestioncategoria.php");
-    $("#modalCRUD").modal("hide");  
+    //$("#modalCRUD").modal("hide");  
     //$("#asdasd").modal("hide"); 
 });    
   

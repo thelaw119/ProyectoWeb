@@ -111,8 +111,9 @@ productos.precio_producto,
 productos.codigo_categoria from productos 
 inner join categorias on productos.codigo_categoria = categorias.codigo_categoria
 
+insert into eventos(nombre_evento, descripcion_evento) values('Descuentos','Descuentos de productos'),('Promociones','Promociones de productos'),('Actualizaciones','Actualizacion de plataforma');
 
-
+select * from eventos;
 
 	
 
