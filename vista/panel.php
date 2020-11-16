@@ -43,6 +43,14 @@ if (!isset($_SESSION["nick_usuario"])) {
         <script src="../js/menu_usuario.js"></script>
         <script src="../js/editardatosusuario.js"></script>
 
+        <link rel="stylesheet" type="text/css" href="../dist/css/loading.css"/>
+        <!--<script type="text/javascript" src="../dist/loading-bar.js"></script>-->-->
+
+
+
+
+
+
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
@@ -298,7 +306,7 @@ if (!isset($_SESSION["nick_usuario"])) {
         <script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
         <script>
-                      $.widget.bridge('uibutton', $.ui.button)
+                                            $.widget.bridge('uibutton', $.ui.button)
         </script>
         <!-- Bootstrap 4 -->
         <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
