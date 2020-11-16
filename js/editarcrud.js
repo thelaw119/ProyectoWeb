@@ -32,7 +32,7 @@ $(document).ready(function(){
 
 
 $("#btnNuevo").click(function(){
-    $("#formularioCategoria").trigger("reset");
+    $("#categoria").trigger("reset");
     $(".modal-header").css("background-color", "#1cc88a");
     $(".modal-header").css("color", "white");
     $(".modal-title").text("Nueva Categoria");            
@@ -77,7 +77,7 @@ $(document).on("click", ".btnBorrar", function(){
     id = parseInt($(this).closest("tr").find('td:eq(0)').text());
     opcion = 3 //borrar
     var respuesta = confirm("¿Está seguro de eliminar el registro: "+id+"?");
-    if(respuesta){
+    if(respuesta == true){
         $.ajax({
             url: "../controlador/ModificarCategoria.php",
             type: "POST",
@@ -86,6 +86,7 @@ $(document).on("click", ".btnBorrar", function(){
             success: function(){
                 TablaCategoria.row(fila.parents('tr')).remove().draw();
                 $('#TablaCategoria').html(data);
+                console.log("acaaaa  "+data);
             }
         });
        //$('#TablaCategoria').html(data);

@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 require_once '../conexion/Conexion.php';
 
@@ -37,11 +41,12 @@ switch ($opcion) {
     case 3:
         $SQL = "DELETE FROM categorias WHERE codigo_categoria='$codigo'";
         $resultado = mysqli_query($conexion, $SQL);
-
+    
+        
 
         break;
 }
 
-
-print json_encode($data, JSON_UNESCAPED_UNICODE);
+print_r($resultado);
+//print json_encode($data, JSON_UNESCAPED_UNICODE);
 $conexion = null;

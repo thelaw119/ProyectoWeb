@@ -34,7 +34,8 @@ if (!isset($_SESSION["nick_usuario"])) {
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
         <script src="../js/contenido.js"></script>
-
+        <script src="../js/crudproducto.js"></script>
+        
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">

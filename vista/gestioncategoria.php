@@ -1,4 +1,7 @@
 <?php
+
+
+
 session_start();
 require_once '../conexion/Conexion.php';
 
@@ -10,8 +13,8 @@ $SQL = "select codigo_categoria,nombre_categoria,descripcion_categoria from cate
 $resultado = mysqli_query($conexion, $SQL);
 ?>
 
-<!--<script src="../js/editarcrud.js"></script>-->
-<script src="../js/crudcategoria.js"></script>
+<script src="../js/editarcrud.js"></script>
+<!--<script src="../js/crudcategoria.js"></script>-->
 
 
 <div  class="table-wrapper">
@@ -62,7 +65,7 @@ $resultado = mysqli_query($conexion, $SQL);
                         <td>
                             <button class='btn btn-primary btnEditar'>Editar</button>
                             <button class='btn btn-danger btnBorrar'>Borrar</button>
-                            <!--<a href="<?php //echo $x = $fila[0];   ?>" data-target="#editarCategoria" class="edit" data-toggle="modal" ><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>-->
+                            <!--<a href="actualiza_categoria.php<?php //$row['codigo_categoria'];   ?>" data-target="#editarCategoria" class="edit" data-toggle="modal" ><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>-->
                             <!--<a href="#eliminarCategoria" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>-->
 
                         </td>

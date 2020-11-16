@@ -115,7 +115,13 @@ insert into eventos(nombre_evento, descripcion_evento) values('Descuentos','Desc
 
 select * from eventos;
 
-	
+INSERT INTO categorias
+(`nombre_categoria`,
+`descripcion_categoria`)VALUES('asdasd','asdasdd');
+
+
+
+select * from productos;
 
 
 
