@@ -14,7 +14,9 @@ function modificarusuario(nombre, apellido, direccion, email, clave, codigo) {
         url: '../controlador/ModificarUsuario.php', //archivo que recibe la peticion
         type: 'post', //método de envio
         beforeSend: function () {
-            $("#resultado").html("Procesando, espere por favor...");
+            $("#resultado").html('<center><img  src="../img/loading/carga.svg" alt="carga" /></center>');
+            //$('#contenido').html('<div class="loading" align="center"><img src="../img/loading/12.svg" alt="loading" /><br/>Un momento, por favor...</div>');
+            //$('#contenido').html('<div class="loading" align="center"><br/>Un momento, por favor...</div>');
         },
         success: function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
             $("#resultado").html(response);
