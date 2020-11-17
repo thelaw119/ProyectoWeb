@@ -28,7 +28,7 @@ function ccompras() {
    
     $.ajax({
         type: "get",
-        url: "../vista/compras.php",
+        url: "../vista/miscompras.php",
         beforeSend: function () {
             $('#contenido').html('<div class="loading" align="center"><img src="../img/loading/cargando.gif" alt="loading" /><br/>Un momento, por favor...</div>');
             

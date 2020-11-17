@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <?php
 session_start();
 require_once '../conexion/Conexion.php';
@@ -13,156 +11,72 @@ $resultado = mysqli_query($conexion, $SQL);
 ?>
 
 
-<div class="col-md-12">
-    <div class="card card-primary card-outline">
-        <div class="card-header">
-            <h3 class="card-title">Inbox</h3>
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <div class="card-tools">
-                <div class="input-group input-group-sm">
-                    <input type="text" class="form-control" placeholder="buscar envento">
-                    <div class="input-group-append">
-                        <div class="btn btn-primary">
-                            <i class="fas fa-search"></i>
-                        </div>
-                    </div>
-                </div>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+
+
+
+
+
+<div  class="table-wrapper">
+    <div class="table-title">
+
+
+
+        <div class="row">
+            <div class="col-sm-7">
+                <h2>Gestor de <b>Categoria</b></h2>
             </div>
-            <!-- /.card-tools -->
+            <!-- <div class="col-sm-6">
+                 <a href="#agregarCategoria" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Catalogo</span></a>
+             </div>-->
         </div>
-        <!-- /.card-header -->
-        <div class="card-body p-0">
-            <div class="mailbox-controls">
-                <!-- Check all button -->
-                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i>
-                </button>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
-                </div>
-                <!-- /.btn-group -->
-                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
-                <div class="float-right">
-                    1-50/200
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                    <!-- /.btn-group -->
-                </div>
-                <!-- /.float-right -->
-            </div>
-            <div class="table-responsive mailbox-messages">
-                <table class="table table-hover table-striped">
-                    <tbody>
-                    <thead>
-                        <tr>
-                            <th>Seleccionar</th>
-                            <th>Codigo</th>
-                            <th>Codigo de evento</th>
-                            <th>Codigo de Usuarios</th>
-                            <th>Descripcion</th>
-                            <th>fecha inicio</th>
-                            <th>fecha termino</th>
-                        </tr>
-                    </thead>
-                    <?php foreach ($resultado as $row) { ?>
-                        <tr>
-                            <td>
-                                <div class = "icheck-primary">
-                                    <input type = "checkbox" value = "" id = "check1">
-                                    <label for = "check1"></label>
-                                </div>
-                            </td>
-                            <td class = "mailbox-subject"><b><?php echo $row['codigo_detalle_eventos']; ?></b></td>
-                            <td class = "mailbox-subject"><b><?php echo $row['codigo_evento']; ?></b></td>
-                            <td class = "mailbox-subject"><b><?php echo $row['codigo_usuario']; ?><b></td>
-                                        <td class = "mailbox-subject"><b><?php echo $row['descripcion_evento']; ?></b></td>
-                                        <td class = "mailbox-subject"><b><?php echo $row['fecha_inicio_evento']; ?><b></td>
-                                                    <td class = "mailbox-subject"><b><?php echo $row['fecha_termino_evento']; ?><b></td>
-                                                                </tr>
-                                                                                <!--<td class = "mailbox-star"><a href = "#"><i class = "fas fa-star text-warning"></i></a></td>-->
 
-                                                            <?php } ?>
-                                                            </tbody>
-                                                            </table>
-                                                            <!--/.table -->
-                                                            </div>
-                                                            <!--/.mail-box-messages -->
-                                                            </div>
-                                                            <!--/.card-body -->
-                                                            <div class = "card-footer p-0">
-                                                                <div class = "mailbox-controls">
-                                                                    <!--Check all button -->
-                                                                    <button type = "button" class = "btn btn-default btn-sm checkbox-toggle"><i class = "far fa-square"></i>
-                                                                    </button>
-                                                                    <div class = "btn-group">
-                                                                        <button type = "button" class = "btn btn-default btn-sm"><i class = "far fa-trash-alt"></i></button>
-                                                                        <button type = "button" class = "btn btn-default btn-sm"><i class = "fas fa-reply"></i></button>
-                                                                        <button type = "button" class = "btn btn-default btn-sm"><i class = "fas fa-share"></i></button>
-                                                                    </div>
-                                                                    <!--/.btn-group -->
-                                                                    <button type = "button" class = "btn btn-default btn-sm"><i class = "fas fa-sync-alt"></i></button>
-                                                                    <div class = "float-right">
-                                                                        1-50/200
-                                                                        <div class = "btn-group">
-                                                                            <button type = "button" class = "btn btn-default btn-sm"><i class = "fas fa-chevron-left"></i></button>
-                                                                            <button type = "button" class = "btn btn-default btn-sm"><i class = "fas fa-chevron-right"></i></button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            </div>
-                                                            </div>
-                                                            <aside class = "control-sidebar control-sidebar-dark">
-                                                                <!--Control sidebar content goes here -->
-                                                            </aside>
 
-                                                            <script src = "../../plugins/jquery/jquery.min.js"></script>
-                                                            <!-- Bootstrap 4 -->
-                                                            <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-                                                            <!-- AdminLTE App -->
-                                                            <script src="../../dist/js/adminlte.min.js"></script>
-                                                            <!-- Page Script -->
-                                                            <script>
-                                                                $(function () {
-                                                                    //Enable check and uncheck all functionality
-                                                                    $('.checkbox-toggle').click(function () {
-                                                                        var clicks = $(this).data('clicks')
-                                                                        if (clicks) {
-                                                                            //Uncheck all checkboxes
-                                                                            $('.mailbox-messages input[type=\'checkbox\']').prop('checked', false)
-                                                                            $('.checkbox-toggle .far.fa-check-square').removeClass('fa-check-square').addClass('fa-square')
-                                                                        } else {
-                                                                            //Check all checkboxes
-                                                                            $('.mailbox-messages input[type=\'checkbox\']').prop('checked', true)
-                                                                            $('.checkbox-toggle .far.fa-square').removeClass('fa-square').addClass('fa-check-square')
-                                                                        }
-                                                                        $(this).data('clicks', !clicks)
-                                                                    })
 
-                                                                    //Handle starring for glyphicon and font awesome
-                                                                    $('.mailbox-star').click(function (e) {
-                                                                        e.preventDefault()
-                                                                        //detect type
-                                                                        var $this = $(this).find('a > i')
-                                                                        var glyph = $this.hasClass('glyphicon')
-                                                                        var fa = $this.hasClass('fa')
+        <div class="col-sm-6">  
+            <!--<a href="#" onclick="javascript:agregarcategoria();" class="btn btn-success">Agregar Categoria</a>-->
+            <!--            <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Añadir</button>    -->
+        </div>
 
-                                                                        //Switch states
-                                                                        if (glyph) {
-                                                                            $this.toggleClass('glyphicon-star')
-                                                                            $this.toggleClass('glyphicon-star-empty')
-                                                                        }
+        <table class="table table-bordered table-striped">
+            <tbody>
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Codigo de evento</th>
+                    <th>Codigo de Usuarios</th>
+                    <th>Descripcion</th>
+                    <th>fecha inicio</th>
+                    <th>fecha termino</th>
+                </tr>
+            </thead>
+<?php foreach ($resultado as $row) { ?>
+                <tr>
+                    
+                    <td><?php echo $detalle_evento = $row['codigo_detalle_eventos']; ?></td>
+                    <td><?php echo $codigo_evento = $row['codigo_evento']; ?></td>
+                    <td><?php echo $codigo_usuario = $row['codigo_usuario']; ?></td>
+                    <td><?php echo $descripcion_evento = $row['descripcion_evento']; ?></td>
+                    <td><?php echo $inicio_evento = $row['fecha_inicio_evento']; ?></td>
+                    <td><?php echo $termino_evento = $row['fecha_termino_evento']; ?></td>
+                    
+                    <td>
+                            
+                            <button type="button" class="btn btn-primary" href="javascript:;" onclick="editarevento(<?php echo $detalle_evento;?>);">Editar</button>
+                            <button type="button" class="btn btn-danger" href="javascript:;" onclick="eliminarevento(<?php echo $detalle_evento;?>);">Eliminar</button>
+                    </td>
+                    </tr>
 
-                                                                        if (fa) {
-                                                                            $this.toggleClass('fa-star')
-                                                                            $this.toggleClass('fa-star-o')
-                                                                        }
-                                                                    })
-                                                                })
-                                                            </script>
-                                                            <!-- AdminLTE for demo purposes -->
-                                                            <script src="../../dist/js/demo.js"></script>
-                                                            </body>
+<?php } ?>
+                    </tbody>
+            </table>
+
+        </div>  
+    </div> 
