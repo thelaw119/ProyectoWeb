@@ -170,9 +170,9 @@ if (!isset($_SESSION["nick_usuario"])) {
 
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#"  class="nav-link active">
+                                        <a href="#" onclick="javascript:productos();"  class="nav-link active">
                                             <i class="far nav-icon"></i>
-                                            <p>Carrito de compras</p>
+                                            <p>Productos</p>
                                         </a>
                                     </li>
                                     <!--

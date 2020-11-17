@@ -52,6 +52,7 @@ create table detalle_compra(
 codigo_factura int not null auto_increment,
 codigo_compra int not null,
 codigo_metodo_pago int not null,
+codigo_usuario int not null,
 numero_orden_pedido int not null,
 nombre_comercio varchar(100) not null,
 monto_total float not null,
@@ -63,7 +64,8 @@ digito_tarjeta int not null,
 descripcion varchar(200) not null,
 primary key(codigo_factura),
 foreign key(codigo_compra) references Carro_Compra(codigo_compra),
-foreign key(codigo_metodo_pago) references metodo_pago(codigo_metodo_pago));
+foreign key(codigo_metodo_pago) references metodo_pago(codigo_metodo_pago),
+foreign key(codigo_usuario) references usuarios(codigo_usuario));
 
 create table eventos(
 codigo_evento int not null auto_increment,
@@ -121,8 +123,9 @@ INSERT INTO categorias
 
 
 
-select * from usuarios;
+select * from detalle_compra;
 
-alter table usuarios
-  add sexo_usuario boolean not null;
+alter table detalle_eventos
+  add descripcion_evento varchar(500) not null;
 
+select * from categorias;

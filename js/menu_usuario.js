@@ -70,3 +70,23 @@ function Guardar_categoria(nombre, descripcion) {
     });
 
 }
+
+function productos() {
+    var detener = 2500;
+   
+    $.ajax({
+        type: "get",
+        url: "../vista/productos.php",
+        beforeSend: function () {
+            $('#contenido').html('<div class="loading" align="center"><img src="../img/loading/cargando.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+            
+        },
+
+        success: function (data) {
+            setTimeout(function () {
+                $('#contenido').html(data);
+            }, detener
+                    );
+        }
+    });
+}
