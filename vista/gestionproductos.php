@@ -1,4 +1,7 @@
 <?php
+/*
+ * @autor: Thelaw
+ */
 session_start();
 require_once '../conexion/Conexion.php';
 
@@ -49,14 +52,15 @@ $resultado = mysqli_query($conexion, $SQL);
                 <tbody>
 
                     <tr>
-                        <td><?php echo $row['codigo_producto']; ?></td>
+                        <td><?php echo $codigo = $row['codigo_producto']; ?></td>
                         <td><?php echo $row['nombre_categoria']; ?></td>
                         <td><?php echo $row['nombre_producto']; ?></td>
                         <td><?php echo $row['descripcion_producto']; ?></td>
                         <td><?php echo $row['precio_producto']; ?></td>
                         <td>
-                            <button class='btn btn-primary btnEditar'>Editar</button>
-                            <button class='btn btn-danger btnBorrar'>Borrar</button>
+                            <button type="button" class="btn btn-primary" href="javascript:;" onclick="editproducto(<?php echo $codigo;?>);">Editar</button>
+                            <button type="button" class="btn btn-danger" href="javascript:;" onclick="deleteproducto(<?php echo $codigo;?>);">Eliminar</button>
+                        <!--<span class="action"><a href="#" id="<?php echo $codigo; ?>" class="delete" title="Delete" style="color:red;">&nbsp;X</a></span>-->
                         </td>
                     </tr>           					 
                 </tbody>
