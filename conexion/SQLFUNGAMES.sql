@@ -43,15 +43,31 @@ primary key(codigo_metodo_pago));
 
 create table Carro_compra(
 codigo_compra int not null auto_increment,
+codigo_usuario int not null,
 cantidad_compra int not null,
-codigo_producto int not null,
+precio_compra float not null,
+estado_compra boolean not null,
+codigo_metodo_pago int not null,
 primary key(codigo_compra),
-foreign key(codigo_producto) references productos(codigo_producto));
+foreign key(codigo_usuario) references usuarios(codigo_usuario),
+foreign key(codigo_metodo_pago) references metodo_pago(codigo_metodo_pago));
+
 
 create table detalle_compra(
 codigo_factura int not null auto_increment,
+codigo_usuario int not null,
+codigo_producto int not null,
+numero_orden_pedido int not null,
+monto_total float not null,
+fecha_transaccion DATE not null,
+primary key(codigo_factura),
+foreign key(codigo_usuario) references usuarios(codigo_usuario),
+foreign key(codigo_producto) references productos(codigo_producto));
+
+
+/*create table detalle_compra(
+codigo_factura int not null auto_increment,
 codigo_compra int not null,
-codigo_metodo_pago int not null,
 codigo_usuario int not null,
 numero_orden_pedido int not null,
 nombre_comercio varchar(100) not null,
@@ -64,8 +80,7 @@ digito_tarjeta int not null,
 descripcion varchar(200) not null,
 primary key(codigo_factura),
 foreign key(codigo_compra) references Carro_Compra(codigo_compra),
-foreign key(codigo_metodo_pago) references metodo_pago(codigo_metodo_pago),
-foreign key(codigo_usuario) references usuarios(codigo_usuario));
+foreign key(codigo_producto) references productos(codigo_producto));*/
 
 create table eventos(
 codigo_evento int not null auto_increment,
@@ -80,6 +95,22 @@ codigo_usuario int not null,
 fecha_inicio_evento date,
 fecha_termino_evento date,
 primary key(codigo_detalle_eventos));
+
+insert into perfiles values(1,"Administrador"),(2,"Cliente");
+
+
+
+/***********LO DE ABAJO SI QUIERES LO AGREGAS************/
+
+
+
+
+
+
+
+
+
+
 
 
 insert into metodo_pago(nombre_metodo_pago,descripcion_metodo_pago) values("Debito","Pago con tarjeta debito"),("credito","Pago contarjeta de credito");
@@ -125,7 +156,5 @@ INSERT INTO categorias
 
 select * from detalle_compra;
 
-alter table detalle_eventos
-  add descripcion_evento varchar(500) not null;
 
 select * from categorias;
