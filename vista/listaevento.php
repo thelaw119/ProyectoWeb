@@ -10,7 +10,7 @@ $SQL = "select * from detalle_eventos";
 $resultado = mysqli_query($conexion, $SQL);
 ?>
 
-
+<script src="../js/crudevento.js"></script>
 <script src="../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -31,7 +31,7 @@ $resultado = mysqli_query($conexion, $SQL);
 
         <div class="row">
             <div class="col-sm-7">
-                <h2>Gestor de <b>Categoria</b></h2>
+                <h2>Gestor de <b>Eventos</b></h2>
             </div>
             <!-- <div class="col-sm-6">
                  <a href="#agregarCategoria" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Catalogo</span></a>
@@ -41,9 +41,7 @@ $resultado = mysqli_query($conexion, $SQL);
 
 
         <div class="col-sm-6">  
-            <!--<a href="#" onclick="javascript:agregarcategoria();" class="btn btn-success">Agregar Categoria</a>-->
-            <!--            <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Añadir</button>    -->
-        </div>
+<a href="#" onclick="javascript:agregarevento();" class="btn btn-success">Agregar Evento</a>        </div>
 
         <table class="table table-bordered table-striped">
             <tbody>
@@ -57,7 +55,7 @@ $resultado = mysqli_query($conexion, $SQL);
                     <th>fecha termino</th>
                 </tr>
             </thead>
-<?php foreach ($resultado as $row) { ?>
+                    <?php foreach ($resultado as $row) { ?>
                 <tr>
                     
                     <td><?php echo $detalle_evento = $row['codigo_detalle_eventos']; ?></td>
@@ -74,7 +72,7 @@ $resultado = mysqli_query($conexion, $SQL);
                     </td>
                     </tr>
 
-<?php } ?>
+                    <?php } ?>
                     </tbody>
             </table>
 
