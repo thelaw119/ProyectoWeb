@@ -34,7 +34,7 @@ $descripcion = $row['descripcion_categoria'];
 
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title">Editar Productos</h3>
+        <h3 class="card-title">Editar Categoria</h3>
     </div>
     <!-- /.card-header -->
 
