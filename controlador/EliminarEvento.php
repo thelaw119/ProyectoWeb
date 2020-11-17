@@ -1,7 +1,7 @@
 <?php
 
 /*
- *   @autor: thelaw
+ *   @autor: seiko
  */
 
 
