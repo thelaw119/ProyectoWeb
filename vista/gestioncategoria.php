@@ -48,7 +48,7 @@ $resultado = mysqli_query($conexion, $SQL);
 
 
         <div class="col-sm-6">  
-            <a href="#" onclick="javascript:agregarcategoria();" class="btn btn-success">Agregar Producto</a>
+            <a href="#" onclick="javascript:agregarcategoria();" class="btn btn-success">Agregar Categoria</a>
 <!--            <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Añadir</button>    -->
         </div>
 
