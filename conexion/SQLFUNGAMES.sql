@@ -121,7 +121,8 @@ INSERT INTO categorias
 
 
 
-select * from productos;
+select * from usuarios;
 
-
+alter table usuarios
+  add sexo_usuario boolean not null;
 

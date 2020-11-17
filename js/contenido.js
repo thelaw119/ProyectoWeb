@@ -59,3 +59,45 @@ function generarevento() {
         }
     });
 }
+
+function vercompras() {
+    var detener = 2500;
+   
+    $.ajax({
+        type: "get",
+        url: "../vista/listacompras.php",
+        beforeSend: function () {
+            $('#contenido').html('<div class="loading" align="center"><img src="../img/loading/cargando.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+            
+        },
+
+        success: function (data) {
+            setTimeout(function () {
+                $('#contenido').html(data);
+                
+            }, detener
+                    );
+        }
+    });
+}
+
+function verusuarios() {
+    var detener = 2500;
+   
+    $.ajax({
+        type: "get",
+        url: "../vista/listausuario.php",
+        beforeSend: function () {
+            $('#contenido').html('<div class="loading" align="center"><img src="../img/loading/cargando.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+            
+        },
+
+        success: function (data) {
+            setTimeout(function () {
+                $('#contenido').html(data);
+                
+            }, detener
+                    );
+        }
+    });
+}

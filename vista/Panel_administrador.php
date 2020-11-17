@@ -33,9 +33,13 @@ if (!isset($_SESSION["nick_usuario"])) {
         <!-- Google Font: Source Sans Pro -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
+        <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
         <script src="../js/contenido.js"></script>
         <script src="../js/crudproducto.js"></script>
-        
+        <script src="../js/crudcategoria.js"></script>
+
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
@@ -128,7 +132,16 @@ if (!isset($_SESSION["nick_usuario"])) {
                                         </a>
                                     </li>
                                 </ul>
-                                
+
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item" id="x">
+                                        <a href="#" onclick="javascript:vercompras();" class="nav-link">
+                                            <i class="far fa-primary nav-icon"></i>
+                                            <p>Ver Compras</p>
+                                        </a>
+                                    </li>
+                                </ul>
+
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item" id="x">
                                         <a href="#" onclick="javascript:generarevento();" class="nav-link">
@@ -239,7 +252,7 @@ if (!isset($_SESSION["nick_usuario"])) {
                                     <div class="icon">
                                         <i class="ion ion-person-add"></i>
                                     </div>
-                                    <a href="#" class="small-box-footer">Mas Informacion <i class="fas fa-arrow-circle-right"></i></a>
+                                    <a href="#" onclick="javascript:verusuarios();" class="small-box-footer">Mas Informacion <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                             <!-- ./col -->
@@ -264,7 +277,7 @@ if (!isset($_SESSION["nick_usuario"])) {
                                     <div class="icon">
                                         <i class="ion ion-pie-graph"></i>
                                     </div>
-                                    <a href="#" class="small-box-footer">Mas Informacion <i class="fas fa-arrow-circle-right"></i></a>
+                                    <a href="#" onclick="javascript:vercompras();" class="small-box-footer">Mas Informacion <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                             <!-- ./col -->
@@ -306,7 +319,7 @@ if (!isset($_SESSION["nick_usuario"])) {
         <script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
         <script>
-                                                $.widget.bridge('uibutton', $.ui.button)
+                                        $.widget.bridge('uibutton', $.ui.button)
         </script>
         <!-- Bootstrap 4 -->
         <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -334,6 +347,8 @@ if (!isset($_SESSION["nick_usuario"])) {
         <script src="../dist/js/pages/dashboard.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="../dist/js/demo.js"></script>
+
+
 
     </body>
 </html>

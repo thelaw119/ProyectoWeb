@@ -104,11 +104,13 @@ function updateproducto(categoria, nombre, descripcion, precio, codigo_producto)
         },
         success: function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
             setTimeout(function () {
+                
                 $("#resultado").html(response);
-                $('#categoria').val('');
-                $('#nombre').val('');
-                $('#descripcion').val('');
-                $('#precio').val('');
+//                $('#categoria').val('');
+//                $('#nombre').val('');
+//                $('#descripcion').val('');
+//                $('#precio').val('');
+
             }, detener
                     );
         }
@@ -153,44 +155,3 @@ function deleteproducto(codigo) {
 
 
 
-
-
-
-//    var respuesta = confirm("¿Está seguro de borrar el registro "+codigo+"?");
-//    
-//    if (respuesta == true){
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//    }else{
-//        alert("Invalido");
-//    }
-
-
-//    var detener = 2500;
-//   
-//    $.ajax({
-//        type: "post",
-//        data: 'codigo='+codigo,
-//        url: "../controlador/editarproducto.php",
-//        beforeSend: function () {
-//            $('#contenido').html('<div class="loading" align="center"><img src="../img/loading/cargando.gif" alt="loading" /><br/>Un momento, por favor...</div>');
-//            
-//        },
-//
-//        success: function (data) {
-//            setTimeout(function () {
-//                $('#contenido').html(data);
-//                
-//            }, detener
-//                    );
-//        }
-//    });
-//}

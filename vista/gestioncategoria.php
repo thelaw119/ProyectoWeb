@@ -13,8 +13,22 @@ $SQL = "select codigo_categoria,nombre_categoria,descripcion_categoria from cate
 $resultado = mysqli_query($conexion, $SQL);
 ?>
 
-<script src="../js/editarcrud.js"></script>
+<!--<script src="../js/editarcrud.js"></script>-->
 <!--<script src="../js/crudcategoria.js"></script>-->
+
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+
+
+
 
 
 <div  class="table-wrapper">
@@ -33,11 +47,12 @@ $resultado = mysqli_query($conexion, $SQL);
 
 
 
-        <div class="col-sm-6">            
-            <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Añadir</button>    
+        <div class="col-sm-6">  
+            <a href="#" onclick="javascript:agregarcategoria();" class="btn btn-success">Agregar Producto</a>
+<!--            <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Añadir</button>    -->
         </div>
 
-        <table id="TablaCategoria" class="table table-striped table-hover">
+        <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Codigo</th>
@@ -59,12 +74,16 @@ $resultado = mysqli_query($conexion, $SQL);
                 <tbody>
 
                     <tr>
-                        <td><?php echo $row['codigo_categoria']; ?></td>
+                        <td><?php echo $codigo = $row['codigo_categoria']; ?></td>
                         <td><?php echo $row['nombre_categoria']; ?></td>
                         <td><?php echo $row['descripcion_categoria']; ?></td>
                         <td>
-                            <button class='btn btn-primary btnEditar'>Editar</button>
-                            <button class='btn btn-danger btnBorrar'>Borrar</button>
+                            
+                            <button type="button" class="btn btn-primary" href="javascript:;" onclick="editcategoria(<?php echo $codigo;?>);">Editar</button>
+                            <button type="button" class="btn btn-danger" href="javascript:;" onclick="deletecategoria(<?php echo $codigo;?>);">Eliminar</button>
+                            
+<!--                            <button class='btn btn-primary btnEditar'>Editar</button>
+                            <button class='btn btn-danger btnBorrar'>Borrar</button>-->
                             <!--<a href="actualiza_categoria.php<?php //$row['codigo_categoria'];   ?>" data-target="#editarCategoria" class="edit" data-toggle="modal" ><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>-->
                             <!--<a href="#eliminarCategoria" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>-->
 
@@ -78,7 +97,7 @@ $resultado = mysqli_query($conexion, $SQL);
 </div> 
 
 <!--Editar Categoria-->
-<div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--<div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -104,7 +123,7 @@ $resultado = mysqli_query($conexion, $SQL);
             </form>    
         </div>
     </div>
-</div> 
+</div> -->
 
 
 

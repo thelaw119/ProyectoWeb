@@ -21,18 +21,19 @@ if ($nombre == '' || $apellido == '' || $direccion == '' || $email == '' || $nic
                
     window.location.href='http://localhost/ProyectoWeb/vista/registrar.php';
     </script>";
-   
 } else {
     $SQL = "INSERT INTO Usuarios(nombre_usuario,apellido_usuario,direccion_usuario,email_usuario,nick_usuario,clave_usuario,codigo_perfil) values('$nombre','$apellido','$direccion','$email','$nick','$clave',2)";
     $resultado = mysqli_query($conexion, $SQL);
-    if ($resultado) {
+    if ($resultado ) {
+
+
+
 
         echo "<script>
                 window.alert('Ya estas registrado!');
                
     window.location.href='http://localhost/ProyectoWeb/vista/login.php';
     </script>";
-        
     } else {
         //
     }
