@@ -5,8 +5,10 @@ require_once '../conexion/Conexion.php';
 if (!isset($_SESSION["nick_usuario"])) {
     header("Location: login.php");
 }
-
-$SQL = "select * from detalle_eventos";
+/*
+ * @autor: Seiko
+ */
+$SQL = "select * from eventos";
 $resultado = mysqli_query($conexion, $SQL);
 ?>
 
@@ -41,34 +43,27 @@ $resultado = mysqli_query($conexion, $SQL);
 
 
         <div class="col-sm-6">  
-<a href="#" onclick="javascript:agregarevento();" class="btn btn-success">Agregar Evento</a>        </div>
-
+            <a href="#" onclick="javascript:agregarevento();" class="btn btn-success">Agregar Evento</a>      </div>
+            <br>
         <table class="table table-bordered table-striped">
             <tbody>
             <thead>
                 <tr>
                     <th>Codigo</th>
-                    <th>Codigo de evento</th>
-                    <th>Codigo de Usuarios</th>
+                    <th>Nombre</th>
                     <th>Descripcion</th>
-                    <th>fecha inicio</th>
-                    <th>fecha termino</th>
+                    <th>Accion</th>
                 </tr>
             </thead>
                     <?php foreach ($resultado as $row) { ?>
                 <tr>
-                    
-                    <td><?php echo $detalle_evento = $row['codigo_detalle_eventos']; ?></td>
                     <td><?php echo $codigo_evento = $row['codigo_evento']; ?></td>
-                    <td><?php echo $codigo_usuario = $row['codigo_usuario']; ?></td>
+                    <td><?php echo $nombre_evento = $row['nombre_evento']; ?></td>
                     <td><?php echo $descripcion_evento = $row['descripcion_evento']; ?></td>
-                    <td><?php echo $inicio_evento = $row['fecha_inicio_evento']; ?></td>
-                    <td><?php echo $termino_evento = $row['fecha_termino_evento']; ?></td>
-                    
                     <td>
                             
-                            <button type="button" class="btn btn-primary" href="javascript:;" onclick="editarevento(<?php echo $detalle_evento;?>);">Editar</button>
-                            <button type="button" class="btn btn-danger" href="javascript:;" onclick="eliminarevento(<?php echo $detalle_evento;?>);">Eliminar</button>
+                            <button type="button" class="btn btn-primary" href="javascript:;" onclick="editarevento(<?php echo $codigo_evento;?>);">Editar</button>
+                            <button type="button" class="btn btn-danger" href="javascript:;" onclick="eliminarevento(<?php echo $codigo_evento;?>);">Eliminar</button>
                     </td>
                     </tr>
 

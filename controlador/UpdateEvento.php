@@ -10,11 +10,10 @@ require_once '../conexion/Conexion.php';
   
 $nombre = $_POST["nombre"];
 $descripcion = $_POST["descripcion"];
-$codigo = $_POST["detalle_evento"];
+$codigo_evento = $_POST["codigo_evento"];
 
 
-
-if ($nombre == '' || $descripcion == '' || $descripcion == '' ) {
+if ($nombre == '' || $descripcion == '') {
 
 echo"<div class='alert alert-warning alert-dismissible'>
                   <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>
@@ -22,7 +21,7 @@ echo"<div class='alert alert-warning alert-dismissible'>
                   Debe completar los datos.
                 </div>";
 } else {
-$SQL = "UPDATE categorias SET nombre_categoria ='$nombre',descripcion_categoria= '$descripcion' WHERE codigo_categoria = '$codigo'";
+$SQL = "UPDATE eventos SET nombre_evento ='$nombre',descripcion_evento= '$descripcion' WHERE codigo_evento = '$codigo_evento'";
 $resultado = mysqli_query($conexion, $SQL);
 
 if ($resultado == true) {

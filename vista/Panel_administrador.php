@@ -39,6 +39,7 @@ if (!isset($_SESSION["nick_usuario"])) {
         <script src="../js/contenido.js"></script>
         <script src="../js/crudproducto.js"></script>
         <script src="../js/crudcategoria.js"></script>
+        <script src="../js/crudevento.js" ></script>
 
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">

@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * @autor: Seiko
+ */
 session_start();
 require_once '../conexion/Conexion.php';
 

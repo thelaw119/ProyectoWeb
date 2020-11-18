@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <?php
 session_start();
-
+/*
+ * @autor: Seiko
+ */
 if (!isset($_SESSION["nick_usuario"])) {
     header("Location: login.php");
 } else {
@@ -42,7 +44,8 @@ if (!isset($_SESSION["nick_usuario"])) {
 
         <script src="../js/menu_usuario.js"></script>
         <script src="../js/editardatosusuario.js"></script>
-
+        <script src="../js/miscompras.js" ></script>
+        <script src="../js/crudevento.js"></script>
         <link rel="stylesheet" type="text/css" href="../dist/css/loading.css"/>
         <!--<script type="text/javascript" src="../dist/loading-bar.js"></script>-->-->
 

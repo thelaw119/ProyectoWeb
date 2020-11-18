@@ -1,4 +1,6 @@
-/*Autor: The Law*/
+/*Autor: The Law
+*Correcciones: Seiko
+*/
 
 create database fungames;
 use fungames;
@@ -55,13 +57,13 @@ foreign key(codigo_metodo_pago) references metodo_pago(codigo_metodo_pago));
 
 create table detalle_compra(
 codigo_factura int not null auto_increment,
-codigo_usuario int not null,
+codigo_compra int not null,
 codigo_producto int not null,
 numero_orden_pedido int not null,
 monto_total float not null,
 fecha_transaccion DATE not null,
 primary key(codigo_factura),
-foreign key(codigo_usuario) references usuarios(codigo_usuario),
+foreign key(codigo_compra) references carro_compra(codigo_compra),
 foreign key(codigo_producto) references productos(codigo_producto));
 
 
@@ -101,15 +103,6 @@ insert into perfiles values(1,"Administrador"),(2,"Cliente");
 
 
 /***********LO DE ABAJO SI QUIERES LO AGREGAS************/
-
-
-
-
-
-
-
-
-
 
 
 
