@@ -24,12 +24,12 @@ if (!isset($_SESSION["nick_usuario"])) {
    
                     <div class="form-group">
                         <label>Nombre Categoria</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese Categoria">
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese Categoria" >
                     </div>
 
                     <div class="form-group">
                         <label>Descripcion Categoria</label>
-                        <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Ingrese Descripcion Categoria"></textarea>
+                        <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Ingrese Descripcion Categoria" ></textarea>
                     </div>
 
                     <div class="form-group">

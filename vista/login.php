@@ -30,15 +30,15 @@
 
                     <form action="../controlador/Login.php" method="post">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="nick" placeholder="Nick">
+                            <input type="text" class="form-control" name="nick" placeholder="Nick" required="true">
                             <div class="input-group-append">
                                 <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
+                                    <span class="fas fa-user"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control" name="clave" placeholder="Password">
+                            <input type="password" class="form-control" name="clave" placeholder="Password" required="true">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>

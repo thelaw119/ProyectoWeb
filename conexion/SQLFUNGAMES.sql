@@ -1,6 +1,4 @@
-/*Autor: The Law
-*Correcciones: Seiko
-*/
+/*Autor: The Law*/
 
 create database fungames;
 use fungames;
@@ -66,6 +64,12 @@ primary key(codigo_factura),
 foreign key(codigo_compra) references carro_compra(codigo_compra),
 foreign key(codigo_producto) references productos(codigo_producto));
 
+select detalle_compra.numero_orden_pedido from detalle_compra
+inner join carro_compra on detalle_compra.codigo_compra = carro_compra.codigo_compra
+inner join usuarios on carro_compra.codigo_usuario = usuarios.codigo_usuario 
+inner join productos on detalle_compra.codigo_producto = productos.codigo_producto
+
+
 
 /*create table detalle_compra(
 codigo_factura int not null auto_increment,
@@ -106,6 +110,18 @@ insert into perfiles values(1,"Administrador"),(2,"Cliente");
 
 
 
+select * from detalle_compra
+inner join carro_compra on detalle_compra.codigo_compra = carro_compra.codigo_compra
+inner join usuarios on carro_compra.codigo_usuario = usuarios.codigo_usuario 
+inner join productos on detalle_compra.codigo_producto = productos.codigo_producto
+
+
+
+
+
+select * from detalle_compra
+
+
 insert into metodo_pago(nombre_metodo_pago,descripcion_metodo_pago) values("Debito","Pago con tarjeta debito"),("credito","Pago contarjeta de credito");
 
 
@@ -113,7 +129,7 @@ select * from usuarios;
 insert into perfiles values(1,"Administrador"),(2,"Cliente");
 
 insert into Usuarios(`codigo_usuario`,`nombre_usuario`,`apellido_usuario`,`direccion_usuario`,`email_usuario`,`nick_usuario`,`clave_usuario`,`codigo_perfil`) 
-values("001","Pedro","Gatica G","Santiago","pgaticaguajardo@gmail.com","admin","123",2);
+values("001","Pedro","Gatica G","Santiago","pgaticaguajardo@gmail.com","admin","123",1);
 
 insert into Usuarios(`codigo_usuario`,`nombre_usuario`,`apellido_usuario`,`direccion_usuario`,`email_usuario`,`nick_usuario`,`clave_usuario`,`codigo_perfil`) 
 values("002","Darlyn","Soazo Lara","BIO BIO","dsoazolara@gmail.com","dsoazo","123",2);

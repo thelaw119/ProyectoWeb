@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -30,7 +30,7 @@
 
                     <form action="../controlador/Registrar.php" method="post">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="true">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"> </span>
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="apellido" placeholder="Apellido">
+                            <input type="text" class="form-control" name="apellido" placeholder="Apellido" required="true">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="direccion" placeholder="Direccion">
+                            <input type="text" class="form-control" name="direccion" placeholder="Direccion" required="true">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-hotel"></span>
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="email" class="form-control" name="email" placeholder="Email">
+                            <input type="email" class="form-control" name="email" placeholder="Email" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required >
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="nick" placeholder="Nombre Usuario">
+                            <input type="text" class="form-control" name="nick" placeholder="Nombre Usuario" required="true">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control" name="clave" placeholder="Password">
+                            <input type="password" class="form-control" name="clave" placeholder="Password" pattern="[a-zA-Z0-9]" required="true">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
