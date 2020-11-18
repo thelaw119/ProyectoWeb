@@ -157,7 +157,7 @@ if (!isset($_SESSION["nick_usuario"])) {
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="#" onclick="javascript:ccompras();" class="nav-link active">
+                                        <a href="#" onclick="javascript:ccompras(<?php echo $codigo;?>);" class="nav-link active">
                                             <i class="far nav-icon"></i>
                                             <!--<i class="far fa-circle nav-icon"></i> -->
                                             <p>Mis Compras</p>

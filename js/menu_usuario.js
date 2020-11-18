@@ -5,13 +5,13 @@
 
 function perfilusuario() {
     var detener = 2500;
-   
+
     $.ajax({
         type: "POST",
         url: "../vista/perfil_usuario.php",
         beforeSend: function () {
             $('#contenido').html('<div class="loading" align="center"><img src="../img/loading/cargando.gif" alt="loading" /><br/>Un momento, por favor...</div>');
-            
+
         },
 
         success: function (data) {
@@ -23,15 +23,19 @@ function perfilusuario() {
     });
 }
 
-function ccompras() {
+function ccompras(codigo) {
+
+ 
+
     var detener = 2500;
-   
+
     $.ajax({
-        type: "get",
+        type: "post",
+        data: 'codigo=' + codigo,
         url: "../vista/miscompras.php",
         beforeSend: function () {
             $('#contenido').html('<div class="loading" align="center"><img src="../img/loading/cargando.gif" alt="loading" /><br/>Un momento, por favor...</div>');
-            
+
         },
 
         success: function (data) {
@@ -53,7 +57,7 @@ function Guardar_categoria(nombre, descripcion) {
         "nombre": nombre,
         "descripcion": descripcion
     };
- 
+
     $.ajax({
         data: datos,
         url: '../controlador/GuardarCategoria.php',
@@ -63,7 +67,7 @@ function Guardar_categoria(nombre, descripcion) {
         },
 
         success: function (response) {
-            
+
             $("#resultado").html(response);
 
         }
@@ -73,13 +77,13 @@ function Guardar_categoria(nombre, descripcion) {
 
 function productos() {
     var detener = 2500;
-   
+
     $.ajax({
         type: "get",
         url: "../vista/productos.php",
         beforeSend: function () {
             $('#contenido').html('<div class="loading" align="center"><img src="../img/loading/cargando.gif" alt="loading" /><br/>Un momento, por favor...</div>');
-            
+
         },
 
         success: function (data) {

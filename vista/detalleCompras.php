@@ -67,7 +67,9 @@ $resultado = mysqli_query($conexion, $SQL);
             </table>
             <br>
     <div class="form-group" align="right">
-        <a href="panel.php"  class="btn btn-success">Volver</a>
+        <!--<a href="panel.php"  class="btn btn-success">Volver</a>-->
+        <button type="button" class="btn btn-success" href="javascript:;" onclick="ccompras()">Volver</button>
+
     </div>
 
 </div>
