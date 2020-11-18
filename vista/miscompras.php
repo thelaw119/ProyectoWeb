@@ -62,6 +62,7 @@ $resultado = mysqli_query($conexion, $SQL);
                     <th>Codigo producto</th>                    
                     <th>Total Monto</th>
                     <th>Fecha</th>
+                    <th>Acción</th>
                 </tr>
             </thead> 
 
