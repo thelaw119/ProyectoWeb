@@ -83,7 +83,7 @@ $resultado = mysqli_query($conexion, $SQL);
                         <td><?php echo $fila['fecha_transaccion']; ?></td>
                         <td>
 
-                            <button type="button" class="btn btn-primary" href="javascript:;" onclick="detallecompras(<?php echo $codigo_usuario; ?>)">Detalles</button>
+                            <button type="button" class="btn btn-primary" href="javascript:;" onclick="detallecompras(<?php echo $codigo; ?>)">Detalles</button>
                             <!--<a href="#" onclick="javascript:detallecompras();" class="btn btn-success">detalle</a>-->
                         </td>
                     </tr>           					 

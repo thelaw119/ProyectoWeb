@@ -8,7 +8,19 @@ if (!isset($_SESSION["nick_usuario"])) {
     header("Location: login.php");
 }
 
-$SQL = "select * from  productos join  detalle_compra on detalle_compra.codigo_producto = productos.codigo_producto join carro_compra on  detalle_compra.codigo_compra = carro_compra.codigo_compra join metodo_pago on metodo_pago.codigo_metodo_pago=carro_compra.codigo_metodo_pago;";
+$codigo_usuario = $_POST['codigo'];
+
+
+
+
+
+$SQL = "select * from  productos join 
+          detalle_compra on detalle_compra.codigo_producto = productos.codigo_producto 
+         join carro_compra on  detalle_compra.codigo_compra = carro_compra.codigo_compra
+         join usuarios on usuarios.codigo_usuario = carro_compra.codigo_usuario
+         join metodo_pago on metodo_pago.codigo_metodo_pago=carro_compra.codigo_metodo_pago
+         where usuarios.codigo_usuario= '$codigo_usuario'";
+
 $resultado = mysqli_query($conexion, $SQL);
 ?>
 
@@ -68,7 +80,7 @@ $resultado = mysqli_query($conexion, $SQL);
             <br>
     <div class="form-group" align="right">
         <!--<a href="panel.php"  class="btn btn-success">Volver</a>-->
-        <button type="button" class="btn btn-success" href="javascript:;" onclick="ccompras()">Volver</button>
+        <button type="button" class="btn btn-success" href="javascript:;" onclick="ccompras(<?php echo $codigo_usuario?>)">Volver</button>
 
     </div>
 
