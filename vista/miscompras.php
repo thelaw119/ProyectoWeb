@@ -12,10 +12,19 @@ if (!isset($_SESSION["nick_usuario"])) {
     header("Location: login.php");
 }
 
+$codigo_usuario = $_POST['codigo'];
+
 $SQL = "select * from  productos join "
         ." detalle_compra on detalle_compra.codigo_producto = productos.codigo_producto "
-        ."join carro_compra on  detalle_compra.codigo_compra = carro_compra.codigo_compra;";
+        ."join carro_compra on  detalle_compra.codigo_compra = carro_compra.codigo_compra"
+        ."join usuarios on usuarios.codigo_usuario = carro_compra.codigo_usuario"
+        ."where usuarios.codigo_usuario= '$codigo_usuario'";
+
+
 $resultado = mysqli_query($conexion, $SQL);
+$result = $resultado -> fetch();
+
+var_dump($result);
 ?>
 
 <!--<script src="../js/editarcrud.js"></script>-->
