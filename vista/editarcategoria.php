@@ -40,8 +40,7 @@ $descripcion = $row['descripcion_categoria'];
 
     <div class="card-body">
         <form  role="form">
-            <div class="row">
-                <div class="col-sm-6">
+           
 
                    
                     <div class="form-group">
@@ -62,8 +61,7 @@ $descripcion = $row['descripcion_categoria'];
                         <button type="submit" class="btn btn-success" href="javascript:;" onclick="updatecategoria($('#nombre').val(), $('#descripcion').val(), $('#codigo_categoria').val());return false;">Actualizar</button>
                     </div>
 
-                </div>
-            </div>
+          
 
         </form>
     </div>

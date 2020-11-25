@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
+require_once '../conexion/Conexion.php';
 /*
  * @autor: Seiko
  */
@@ -46,6 +47,7 @@ if (!isset($_SESSION["nick_usuario"])) {
         <script src="../js/editardatosusuario.js"></script>
         <script src="../js/miscompras.js" ></script>
         <script src="../js/crudevento.js"></script>
+        <script src="../js/compras.js"></script>
         <link rel="stylesheet" type="text/css" href="../dist/css/loading.css"/>
         <!--<script type="text/javascript" src="../dist/loading-bar.js"></script>-->-->
 
@@ -88,30 +90,65 @@ if (!isset($_SESSION["nick_usuario"])) {
                 <!-- Right navbar links -->
                 <ul class="navbar-nav ml-auto">
 
+                    <?php
+                    $SQLcontador = "select count(*)
+                    from detalle_eventos
+                    inner join eventos on detalle_eventos.codigo_evento = eventos.codigo_evento
+                    inner join usuarios on detalle_eventos.codigo_usuario = usuarios.codigo_usuario
+                    where usuarios.codigo_usuario = '$codigo';";
+                    $contador = mysqli_query($conexion, $SQLcontador);
+
+                    $SQL = "select eventos.nombre_evento,eventos.descripcion_evento, 
+                        detalle_eventos.fecha_inicio_evento, detalle_eventos.fecha_termino_evento, usuarios.codigo_usuario 
+                        from detalle_eventos 
+                        inner join eventos on detalle_eventos.codigo_evento = eventos.codigo_evento
+                        inner join usuarios on detalle_eventos.codigo_usuario = usuarios.codigo_usuario
+                        where usuarios.codigo_usuario = '$codigo' order  by  eventos.nombre_evento desc";
+                    $resultado = mysqli_query($conexion, $SQL);
+
+                    if ($contador->num_rows > 0) {
+                        $row = $contador->fetch_assoc();
+                        $total_notificacion = $row['count(*)'];
+                    }
+//                    var_dump($total_notificacion);
+                    ?>
+
+
                     <li class="nav-item dropdown">
                         <a class="nav-link" data-toggle="dropdown" href="#">
                             <i class="far fa-bell"></i>
-                            <span class="badge badge-warning navbar-badge">15</span>
+                            <span class="badge badge-warning navbar-badge"><?php echo $total_notificacion; ?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                            <span class="dropdown-item dropdown-header">15 Notifications</span>
+                            <span class="dropdown-item dropdown-header"><?php echo $total_notificacion; ?> Notificaciones</span>
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">
-                                <i class="fas fa-envelope mr-2"></i> 4 new messages
-                                <span class="float-right text-muted text-sm">3 mins</span>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">
-                                <i class="fas fa-users mr-2"></i> 8 friend requests
-                                <span class="float-right text-muted text-sm">12 hours</span>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">
-                                <i class="fas fa-file mr-2"></i> 3 new reports
-                                <span class="float-right text-muted text-sm">2 days</span>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+
+
+
+                            <?php
+//                            while($resultado = mysqli_)
+                            foreach ($resultado as $row) {
+                                ?>
+
+
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-envelope mr-2"></i> <?php echo $row['nombre_evento']; ?>
+                                    <span class="float-right text-muted text-sm">3 mins</span>
+                                </a>
+
+                            <?php } ?>
+                            <!--                            <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item">
+                                                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                                                            <span class="float-right text-muted text-sm">12 hours</span>
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item">
+                                                            <i class="fas fa-file mr-2"></i> 3 new reports
+                                                            <span class="float-right text-muted text-sm">2 days</span>
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>-->
                         </div>
                     </li>
                     <li class="nav-item">
@@ -126,7 +163,7 @@ if (!isset($_SESSION["nick_usuario"])) {
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="index3.html" class="brand-link">
+                <a href="#" class="brand-link">
                     <img src="../img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light"><?php echo $_SESSION["nombre_perfil"]; ?></span>
@@ -157,7 +194,7 @@ if (!isset($_SESSION["nick_usuario"])) {
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="#" onclick="javascript:ccompras(<?php echo $codigo;?>);" class="nav-link active">
+                                        <a href="#" onclick="javascript:ccompras(<?php echo $codigo; ?>);" class="nav-link active">
                                             <i class="far nav-icon"></i>
                                             <!--<i class="far fa-circle nav-icon"></i> -->
                                             <p>Mis Compras</p>
@@ -173,7 +210,7 @@ if (!isset($_SESSION["nick_usuario"])) {
 
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" onclick="javascript:productos();"  class="nav-link active">
+                                        <a href="#" onclick="javascript:productos(<?php echo $codigo; ?>);"  class="nav-link active">
                                             <i class="far nav-icon"></i>
                                             <p>Productos</p>
                                         </a>
@@ -214,65 +251,75 @@ if (!isset($_SESSION["nick_usuario"])) {
                     <div class="container-fluid">
                         <!-- Small boxes (Stat box) -->
                         <div class="row">
-                            <div class="col-lg-3 col-6">
+                            <div class="col-lg-4 col-6">
                                 <!-- small box -->
-                                <div class="small-box bg-info">
-                                    <div class="inner">
-                                        <h3>150</h3>
 
-                                        <p>Productos</p>
+                                <?php
+                                $SQL = "SELECT COUNT(*) FROM productos";
+                                $resultado = mysqli_query($conexion, $SQL);
+                                $data = $resultado->fetch_assoc();
+                                foreach ($data as $row) {
+                                    ?>
+
+
+                                    <div class="small-box bg-info">
+                                        <div class="inner">
+                                            <h3><?php
+                                echo $row;
+                            }
+                                ?></h3>
+
+                                        <p>Productos En Venta</p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-bag"></i>
                                     </div>
-                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+<!--                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
                                 </div>
                             </div>
                             <!-- ./col -->
-                            <div class="col-lg-3 col-6">
+                            <div class="col-lg-4 col-6">
                                 <!-- small box -->
-                                <div class="small-box bg-success">
-                                    <div class="inner">
-                                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                                <?php
+                                $SQL = "select COUNT(*) from carro_compra where codigo_usuario = '$codigo';";
+                                $resultado = mysqli_query($conexion, $SQL);
+                                $data = $resultado->fetch_assoc();
+                                foreach ($data as $row) {
+                                    ?>
+
+                                    <div class="small-box bg-success">
+                                        <div class="inner">
+                                            <h3><?php
+                                echo $row;
+                            }
+                                ?><sup style="font-size: 20px"></sup></h3>
 
                                         <p>Mis Compras</p>
                                     </div>
                                     <div class="icon">
-                                        <i class="ion ion-stats-bars"></i>
+                                        <i class="ion ion-bag"></i>
                                     </div>
-                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+<!--                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
                                 </div>
                             </div>
                             <!-- ./col -->
-                            <div class="col-lg-3 col-6">
+                            <div class="col-lg-4 col-6">
                                 <!-- small box -->
                                 <div class="small-box bg-warning">
                                     <div class="inner">
-                                        <h3>44</h3>
-
+                                        <h3> </h3>
+                                        <br>
                                         <p>Modificar Perfil</p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-person-add"></i>
                                     </div>
-                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                    <a href="#" onclick="javascript:perfilusuario();" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                             <!-- ./col -->
-                            <div class="col-lg-3 col-6">
-                                <!-- small box -->
-                                <div class="small-box bg-danger">
-                                    <div class="inner">
-                                        <h3>65</h3>
 
-                                        <p>Unique Visitors</p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="ion ion-pie-graph"></i>
-                                    </div>
-                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
                             <!-- ./col -->
                         </div>
 
@@ -288,10 +335,10 @@ if (!isset($_SESSION["nick_usuario"])) {
             </div>
             <!-- /.content-wrapper -->
             <footer class="main-footer">
-                <strong> <a href="http://adminlte.io">Copyright</a> &copy; 2020.</strong>
-                Todos los derechos reservados.
+                <strong>Copyright &copy; 2020 <a href="#">TheLaw</a>.</strong>
+                Todo los derechos reservados.
                 <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 1.0.
+                    <b>Version</b> 1.0.0
                 </div>
             </footer>
 
@@ -309,7 +356,7 @@ if (!isset($_SESSION["nick_usuario"])) {
         <script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
         <script>
-                                            $.widget.bridge('uibutton', $.ui.button)
+                                        $.widget.bridge('uibutton', $.ui.button)
         </script>
         <!-- Bootstrap 4 -->
         <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

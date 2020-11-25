@@ -40,13 +40,12 @@ $descripcion = $row['descripcion_evento'];
 
     <div class="card-body">
         <form  role="form">
-            <div class="row">
-                <div class="col-sm-6">
+           
 
                    
                     <div class="form-group">
                         <label>Nombre Evento </label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombre; ?>">
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese Nombre de Evento" value="<?php echo $nombre; ?>">
                     </div>
 
 
@@ -62,8 +61,7 @@ $descripcion = $row['descripcion_evento'];
                         <button type="submit" class="btn btn-success" href="javascript:;" onclick="updateevento($('#nombre').val(), $('#descripcion').val(), $('#codigo_evento').val());return false;">Actualizar</button>
                     </div>
 
-                </div>
-            </div>
+          
 
         </form>
     </div>

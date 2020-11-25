@@ -8,7 +8,22 @@ if (!isset($_SESSION["nick_usuario"])) {
     header("Location: login.php");
 }
 
-$codigo_usuario = $_POST['codigo'];
+$nombre  = $_SESSION["nick_usuario"];
+
+/*PARA VOLVER*/
+$SQLCONSULTAUSUARIO = "Select codigo_usuario from usuarios where nick_usuario = '$nombre'";
+$resultado = mysqli_query($conexion, $SQLCONSULTAUSUARIO);
+
+if ($resultado->num_rows > 0) {
+    $row = $resultado->fetch_assoc();
+    $codigo = $row['codigo_usuario'];
+}
+
+
+/*FIN PARA VOLVER*/
+
+
+$factura = $_POST['factura'];
 
 
 
@@ -19,7 +34,7 @@ $SQL = "select * from  productos join
          join carro_compra on  detalle_compra.codigo_compra = carro_compra.codigo_compra
          join usuarios on usuarios.codigo_usuario = carro_compra.codigo_usuario
          join metodo_pago on metodo_pago.codigo_metodo_pago=carro_compra.codigo_metodo_pago
-         where usuarios.codigo_usuario= '$codigo_usuario'";
+         where detalle_compra.codigo_factura = '$factura'";
 
 $resultado = mysqli_query($conexion, $SQL);
 ?>
@@ -79,8 +94,8 @@ $resultado = mysqli_query($conexion, $SQL);
             </table>
             <br>
     <div class="form-group" align="right">
-        <!--<a href="panel.php"  class="btn btn-success">Volver</a>-->
-        <button type="button" class="btn btn-success" href="javascript:;" onclick="ccompras(<?php echo $codigo_usuario?>)">Volver</button>
+<!--        <a href="panel.php"  class="btn btn-success">Volver</a>-->
+        <button type="button" class="btn btn-success" href="javascript:;" onclick="ccompras(<?php echo $codigo; ?>)">Volver</button>
 
     </div>
 

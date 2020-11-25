@@ -75,11 +75,12 @@ function Guardar_categoria(nombre, descripcion) {
 
 }
 
-function productos() {
+function productos(codigo) {
     var detener = 2500;
 
     $.ajax({
-        type: "get",
+        type: "post",
+        data: 'codigo=' + codigo,
         url: "../vista/productos.php",
         beforeSend: function () {
             $('#contenido').html('<div class="loading" align="center"><img src="../img/loading/cargando.gif" alt="loading" /><br/>Un momento, por favor...</div>');

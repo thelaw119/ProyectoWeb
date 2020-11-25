@@ -20,8 +20,7 @@ if (!isset($_SESSION["nick_usuario"])) {
     
     <div class="card-body">
         <form  role="form">
-            <div class="row">
-                <div class="col-sm-6">
+           
                     
    
                     <div class="form-group">
@@ -38,8 +37,7 @@ if (!isset($_SESSION["nick_usuario"])) {
                         <button type="submit" class="btn btn-success" href="javascript:;" onclick="addevento($('#nombre').val(), $('#descripcion').val());return false;">Agregar</button>
                     </div>
                     
-                </div>
-            </div>
+           
 
         </form>
     </div>

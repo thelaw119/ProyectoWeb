@@ -40,7 +40,8 @@ if (!isset($_SESSION["nick_usuario"])) {
         <script src="../js/crudproducto.js"></script>
         <script src="../js/crudcategoria.js"></script>
         <script src="../js/crudevento.js" ></script>
-
+        <script src="../js/asignaevento.js" ></script>
+        
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
@@ -51,12 +52,6 @@ if (!isset($_SESSION["nick_usuario"])) {
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                    </li>
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <a href="index3.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <a href="#" class="nav-link">Contact</a>
                     </li>
                 </ul>
 
@@ -76,7 +71,7 @@ if (!isset($_SESSION["nick_usuario"])) {
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="index3.html" class="brand-link">
+                <a href="#" class="brand-link">
                     <img src="../img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light"><?php echo $_SESSION["nombre_perfil"]; ?></span>
@@ -148,6 +143,15 @@ if (!isset($_SESSION["nick_usuario"])) {
                                         <a href="#" onclick="javascript:generarevento();" class="nav-link">
                                             <i class="far fa-primary nav-icon"></i>
                                             <p>Generar Eventos</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item" id="x">
+                                        <a href="#" onclick="javascript:asignaevento();" class="nav-link">
+                                            <i class="far fa-primary nav-icon"></i>
+                                            <p>Asignar Eventos</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -235,7 +239,7 @@ if (!isset($_SESSION["nick_usuario"])) {
                             <div class="col-lg-3 col-6">
                                 <!-- small box -->
                                 <?php
-                                $SQL = "SELECT COUNT(*) FROM usuarios";
+                                $SQL = "SELECT COUNT(*) FROM usuarios where codigo_perfil = 2";
                                 $resultado = mysqli_query($conexion, $SQL);
                                 $data = $resultado->fetch_assoc();
                                 foreach ($data as $row) {

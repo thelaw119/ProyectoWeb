@@ -1,16 +1,23 @@
 <?php
 /*
- * @autor: Seiko
+ * @autor: Thelaw
  */
 session_start();
 require_once '../conexion/Conexion.php';
 
 
-$nombre = $_POST["nombre"];
-$descripcion = $_POST["descripcion"];
+$evento = $_POST["evento"];
+$usuario = $_POST["usuario"];
+$fecha_inicio = $_POST["fecha_inicio"];
+$fecha_termino = $_POST["fecha_termino"];
 
 
-if ($nombre == '' || $descripcion == '' ) {
+//var_dump($evento,$usuario,$fecha_inicio,$fecha_termino);
+//
+//die();
+
+
+if ($evento == '' || $usuario == '' || $fecha_inicio == '' || $fecha_termino == '') {
 
     echo "<div class='alert alert-warning alert-dismissible'>
                   <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>
@@ -19,7 +26,8 @@ if ($nombre == '' || $descripcion == '' ) {
                 </div>";
 } else {
 
-    $SQL = "insert into eventos(`nombre_evento`,`descripcion_evento` ) values('$nombre','$descripcion')";
+    $SQL = "insert into detalle_eventos(`codigo_evento`,`codigo_usuario`,`fecha_inicio_evento`,`fecha_termino_evento` ) 
+            values('$evento','$usuario','$fecha_inicio','$fecha_termino')";
     $resultado = mysqli_query($conexion, $SQL);
 
     if ($resultado == true) {

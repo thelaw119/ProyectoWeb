@@ -44,66 +44,74 @@ $codigo_cat = $row['codigo_categoria'];
 
     <div class="card-body">
         <form  role="form">
-            <div class="row">
-                <div class="col-sm-6">
+
+
+            <?php
+            $cate = "select * from categorias where codigo_categoria = '$codigo_cat'";
+            $resultcate = mysqli_query($conexion, $cate);
+
+
+            foreach ($resultcate as $row) {
+                
+            }
+            $cat = $row['nombre_categoria'];
+            ?>
+            <div class="form-group">
+                <label>Nombre Categoria Actual</label>
+                <input type="text" class="form-control"  value="<?php echo $cat; ?>" disabled="">
+            </div>
+
+
+            <div class="form-group">
+                <label>Categorias Editar</label>
+                <select id="categoria" name="categoria" class="form-control">
 
                     <?php
-                    $cate = "select * from categorias where codigo_categoria = '$codigo_cat'";
-                    $resultcate = mysqli_query($conexion, $cate);
+                    $html = "<option value='0'>Seleccionar Categoria</option>";
 
+                    while ($valores = mysqli_fetch_array($resultado)) {
 
-                    foreach ($resultcate as $row) {
-
+                        $html .= "<option value='" . $valores['codigo_categoria'] . "'>" . $valores['nombre_categoria'] . "</option>";
                     }
-                    $cat = $row['nombre_categoria'];
-
+                    echo $html;
                     ?>
-                    <div class="form-group">
-                        <label>Nombre Categoria Actual</label>
-                        <input type="text" class="form-control"  value="<?php echo $cat; ?>" disabled="">
-                    </div>
-
-
-                    <div class="form-group">
-                        <label>Categorias Editar</label>
-                        <select id="categoria" name="categoria" class="form-control">
-
-                                <?php
-                                $html = "<option value='0'>Seleccionar Categoria</option>";
-
-                                while ($valores = mysqli_fetch_array($resultado)) {
-
-                                    $html .= "<option value='" . $valores['codigo_categoria'] . "'>" . $valores['nombre_categoria'] . "</option>";
-                                }
-                                echo $html;
-                                ?>
-                        </select>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label>Nombre Producto</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre"  value="<?php echo $nombre; ?>" placeholder="Ingrese Nombre Producto">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Descripcion Producto</label>
-                        <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Ingrese Descripcion Producto"><?php echo $descripcion; ?></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Precio Producto</label>
-                        <input type="text" class="form-control" id="precio" name="precio" value="<?php echo $precio; ?>" placeholder="Agregar Precio">
-                        <input type="hidden" id="codigo_producto" name="codigo_producto" value="<?php echo $codigo; ?>" >
-                    </div>
-
-                    
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success" href="javascript:;" onclick="updateproducto($('#categoria').val(), $('#nombre').val(), $('#descripcion').val(), $('#precio').val(), $('#codigo_producto').val());return false;">Actualizar</button>
-                    </div>
-
-                </div>
+                </select>
             </div>
+            
+            <div class="form-group">
+                <label>Nombre Producto</label>
+                <input type="text" class="form-control" id="nombre" name="nombre"  value="<?php echo $nombre; ?>" >
+            </div>
+
+            <div class="form-group">
+                <label>Descripcion Producto</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Ingrese Descripcion Producto"><?php echo $descripcion;?></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Precio Producto</label>
+                <input type="text" class="form-control" id="precio" name="precio" placeholder="Agregar Precio" value="<?php echo $precio;?>" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+
+            </div>
+            <input type="hidden" id="codigo_producto" value="<?php echo $codigo;?>">
+
+            <!--            <div class="form-group">
+                            <label>Fecha Inicio</label>
+                            <input class="form-control" type="date" value="<?php //echo $fecha_inicio_evento; ?>" id="fecha_inicio">
+            
+                        </div>
+            
+                        <div class="form-group">
+                            <label >Fecha Termino</label>
+                            <input class="form-control" type="date" value="<?php //echo $fecha_termino_evento; ?>" id="fecha_termino">
+            
+                        </div>-->
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" href="javascript:;" onclick="updateproducto($('#categoria').val(), $('#nombre').val(), $('#descripcion').val(), $('#precio').val(), $('#codigo_producto').val());return false;">Actualizar</button>
+            </div>
+
+
 
         </form>
     </div>

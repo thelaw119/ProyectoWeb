@@ -1,14 +1,21 @@
 <?php
-
+session_start();
 require_once '../conexion/Conexion.php';
 
 
 $nick = $_POST["nick"];
 $clave = $_POST["clave"];
 
-session_start();
-
+//var_dump($nick,$clave);
+//die();
 //$_SESSION['nick'] = $nick;
+//if($nick == "" || $clave == ""){
+//    echo "<div class='alert alert-warning alert-dismissible'>
+//                  <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>
+//                  <h5><i class='icon fas fa-info'></i> Advertencia!</h5>
+//                  Debe Completar datos!.
+//                </div>";
+//} 
 
 $SQL = "select usuarios.codigo_usuario,usuarios.nick_usuario,usuarios.clave_usuario, usuarios.nombre_usuario,usuarios.apellido_usuario,usuarios.direccion_usuario,usuarios.email_usuario,usuarios.clave_usuario, perfiles.codigo_perfil, perfiles.nombre_perfil from Usuarios inner join perfiles on perfiles.codigo_perfil = usuarios.codigo_perfil where nick_usuario = '$nick' and clave_usuario = '$clave'";
 
@@ -51,7 +58,14 @@ if($consulta->num_rows > 0){
     } 
     
 }else{
+//    echo "<div class='alert alert-warning alert-dismissible'>
+//                  <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>
+//                  <h5><i class='icon fas fa-info'></i> Advertencia!</h5>
+//                  Usuario o contraseña incorrectas!.
+//                </div>";
     header("Location:http://localhost/ProyectoWeb/vista/login.php");
+    
+    
 }
 
 
@@ -74,7 +88,7 @@ if($consulta->num_rows > 0){
 //    
 //}
 //    
-    
+   
 
 mysqli_free_result($consulta);
 mysqli_close($conexion);

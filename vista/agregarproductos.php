@@ -20,8 +20,7 @@ $resultado = mysqli_query($conexion, $SQL);
     
     <div class="card-body">
         <form  role="form">
-            <div class="row">
-                <div class="col-sm-6">
+            
                     
                     <div class="form-group">
                         <label>Categorias</label>
@@ -52,7 +51,7 @@ $resultado = mysqli_query($conexion, $SQL);
 
                     <div class="form-group">
                         <label>Precio Producto</label>
-                        <input type="text" class="form-control" id="precio" name="precio" placeholder="Agregar Precio">
+                        <input type="text" class="form-control" id="precio" name="precio" placeholder="Agregar Precio" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                         
                     </div>
 
@@ -61,11 +60,12 @@ $resultado = mysqli_query($conexion, $SQL);
                         <button type="submit" class="btn btn-success" href="javascript:;" onclick="addproducto($('#categoria').val(), $('#nombre').val(), $('#descripcion').val(), $('#precio').val());return false;">Agregar</button>
                     </div>
                     
-                </div>
-            </div>
+                
+          
 
         </form>
-    </div>
+    
+</div>
 </div>
 
 <div id="resultado"></div>

@@ -15,7 +15,7 @@ if ($categoria == '' || $nombre == '' || $descripcion == '' || $precio == '') {
 
     echo "<div class='alert alert-warning alert-dismissible'>
                   <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>
-                  <h5><i class='icon fas fa-info'></i> Agregado!</h5>
+                  <h5><i class='icon fas fa-exclamation-triangle'></i> Advertencia!</h5>
                   Debe completar los datos.
                 </div>";
 } else {
@@ -26,13 +26,13 @@ if ($categoria == '' || $nombre == '' || $descripcion == '' || $precio == '') {
     if ($resultado == true) {
         echo "<div class='alert alert-success alert-dismissible'>
                   <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>
-                  <h5><i class='icon fas fa-ban'></i> Alert!</h5>
+                  <h5><i class='icon fas fa-check'></i> Almacenado!</h5>
                   Datos Guardados.
                 </div>";
     } else {
         echo "<div class='alert alert-danger alert-dismissible'>
                   <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>
-                  <h5><i class='icon fas fa-check'></i> Alert!</h5>
+                  <h5><i class='icon fas fa-ban'></i> Alert!</h5>
                   Problemas al guardar tus datos.
                 </div>";
     }

@@ -105,8 +105,8 @@ function updatecategoria(nombre, descripcion, codigo_categoria) {
             setTimeout(function () {
                 $("#resultado").html(response);
 
-                $('#nombre').val('');
-                $('#descripcion').val('');
+//                $('#nombre').val('');
+//                $('#descripcion').val('');
 
             }, detener
                     );

@@ -19,7 +19,7 @@ if ($nombre_pila == '' || $apellido_usuario == '' || $direccion_usuario == '' ||
 
 echo"<div class='alert alert-warning alert-dismissible'>
                   <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>
-                  <h5><i class='icon fas fa-info'></i> Advertencia!</h5>
+                  <h5><i class='icon fas fa-exclamation-triangle'></i> Advertencia!</h5>
                   Debe completar los datos.
                 </div>";
 } else {
@@ -37,7 +37,7 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $message = "
                 <html>
                 <head>
-                <title>HTML</title>
+                <title>Datos Modificados</title>
                 </head>
                 <body>
                 <h1>Tus nuevos datos Son:</h1>
@@ -57,7 +57,7 @@ mail($to, $subject, $message, $headers);
 
 echo "<div class='alert alert-success alert-dismissible'>
                   <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>
-                  <h5><i class='icon fas fa-ban'></i> Datos Guardados Exitosamente</h5>
+                  <h5><i class='icon fas fa-check'></i> Datos Guardados Exitosamente</h5>
                   <p>Sus datos nuevos fueron enviado a su correo electronico.</p>
                   <p>Debe Volver a iniciar Sesion.</p>
                   <div>
@@ -70,7 +70,7 @@ echo "<div class='alert alert-success alert-dismissible'>
         echo "<div class = 'alert alert-danger alert-dismissible'>
 <button type = button class = 'close data-dismiss=alert aria-hidden=true'>&times;
 </button>
-<h5><i class = 'icon fas fa-check'></i> Alert!</h5>
+<h5><i class = 'icon fas fa-ban'></i> Error!</h5>
 Problemas al guardar tus datos.
 </div>";
     }

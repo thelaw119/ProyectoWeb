@@ -76,14 +76,14 @@ $resultado = mysqli_query($conexion, $SQL);
             
                 <tbody>
                     <tr>
-                        <td><?php echo $fila['numero_orden_pedido']; ?></td>
+                        <td><?php echo $factura = $fila['codigo_factura']; ?></td>
                         <td><?php echo $fila['nombre_producto']; ?></td>
                         <td><?php echo $fila['codigo_producto']; ?></td>
                         <td>$<?php echo $fila['monto_total']; ?></td>
                         <td><?php echo $fila['fecha_transaccion']; ?></td>
                         <td>
 
-                            <button type="button" class="btn btn-primary" href="javascript:;" onclick="detallecompras(<?php echo $codigo_usuario; ?>)">Detalles</button>
+                            <button type="button" class="btn btn-primary" href="javascript:;" onclick="detallecompras(<?php echo $factura;?>)">Detalles</button>
                             <!--<a href="#" onclick="javascript:detallecompras();" class="btn btn-success">detalle</a>-->
                         </td>
                     </tr>           					 

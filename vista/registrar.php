@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -17,6 +17,22 @@
         <link rel="stylesheet" href="../dist/css/adminlte.min.css">
         <!-- Google Font: Source Sans Pro -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+        <script src="../js/acceso_registro_recupera.js"></script>
+        <script>
+
+            function comprobar(obj)
+            {
+                if (obj.checked) {
+
+                    document.getElementById('boton').style.display = "";
+                } else {
+
+                    document.getElementById('boton').style.display = "none";
+                }
+            }
+
+        </script>
+
     </head>
     <body class="hold-transition register-page">
         <div class="register-box">
@@ -28,9 +44,10 @@
                 <div class="card-body register-card-body">
                     <p class="login-box-msg">Registrarse</p>
 
-                    <form action="../controlador/Registrar.php" method="post">
+                    <!--                    <form action="../controlador/Registrar.php" method="post">-->
+                    <form name="registrar">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="true">
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" >
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"> </span>
@@ -38,7 +55,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="apellido" placeholder="Apellido" required="true">
+                            <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido" >
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -46,7 +63,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="direccion" placeholder="Direccion" required="true">
+                            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion" >
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-hotel"></span>
@@ -54,7 +71,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="email" class="form-control" name="email" placeholder="Email" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required >
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required >
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -62,7 +79,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="nick" placeholder="Nombre Usuario" required="true">
+                            <input type="text" class="form-control" id="nick" name="nick" placeholder="Nombre Usuario" >
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -70,7 +87,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control" name="clave" placeholder="Password" pattern="[a-zA-Z0-9]" required="true">
+                            <input type="password" class="form-control" id="clave" name="clave" placeholder="Password"  >
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
@@ -88,7 +105,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="icheck-primary">
-                                    <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                    <input type="checkbox" id="agreeTerms" name="terms" onChange="comprobar(this);">
                                     <label for="agreeTerms">
                                         <a href="#">Termino y Condiciones</a>
                                     </label>
@@ -96,14 +113,21 @@
                             </div>
                             <!-- /.col -->
                             <div class="col-4">
-                                <button type="submit" class="btn btn-primary btn-block">Registrar</button>
-                            </div>
+                                <!--                                <button type="submit" class="btn btn-primary btn-block">Registrar</button>-->
+                                <button type="submit" class="btn btn-primary" href="javascript:;" onclick="registrar_usuario($('#nombre').val(), $('#apellido').val(), $('#direccion').val(), $('#email').val(), $('#nick').val(), $('#clave').val());return false;" id="boton" readonly style="display:none">Registrar</button>
+                            </div>                
+                            <!--<button type="submit" class="btn btn-success" href="javascript:;" onclick="addasigevento($('#evento').val(), $('#usuario').val(), $('#fecha_inicio').val(), $('#fecha_termino').val());return false;">Ingresar</button>-->
+
                             <!-- /.col -->
                         </div>
                     </form>
 
 
                     <a href="login.php" class="text-center">Ya estoy registrado</a>
+                </div>
+
+                <div class="content-header" id="resultado">
+
                 </div>
                 <!-- /.form-box -->
             </div><!-- /.card -->

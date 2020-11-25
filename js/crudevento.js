@@ -93,8 +93,8 @@ function updateevento(nombre, descripcion,codigo_evento) {
             setTimeout(function () {
                 $("#resultado").html(response);
 
-                $('#nombre').val('');
-                $('#descripcion').val('');
+//                $('#nombre').val('');
+//                $('#descripcion').val('');
 
             }, detener
                     );

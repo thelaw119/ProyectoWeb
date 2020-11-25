@@ -101,3 +101,25 @@ function verusuarios() {
         }
     });
 }
+
+
+function asignaevento() {
+    var detener = 2500;
+   
+    $.ajax({
+        type: "get",
+        url: "../vista/listaasignaevento.php",
+        beforeSend: function () {
+            $('#contenido').html('<div class="loading" align="center"><img src="../img/loading/cargando.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+            
+        },
+
+        success: function (data) {
+            setTimeout(function () {
+                $('#contenido').html(data);
+                
+            }, detener
+                    );
+        }
+    });
+}
